@@ -1,0 +1,7 @@
+<div class="message">
+  <ul>
+    <% @messages.each do |message| %>
+      <li><%= message.content %> by <%= message.user.name %></li>
+    <% end %>
+  </ul>
+</div>
