@@ -1,0 +1,12 @@
+<div class="form-style-5">
+  <h1>ADD NEW FUND ITEM</h1>
+    <%= simple_form_for [ @fund, @fund_item ] do |f| %>
+      <div class="form-group">
+        <%= f.association :coin, collection: @coins, selected: @coins.first %>
+      </div>
+      <div class="form-group">
+        <%= f.input :quantity %>
+      </div>
+      <%= f.submit "ADD", class: "btn btn-primary" %>
+  <% end %>
+</div>

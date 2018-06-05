@@ -1,14 +1,19 @@
 class FundItemsController < ApplicationController
 def new
-    @fund_item = Fund_Item.new
+    @fund = Fund.find(params[:fund_id])
+    @fund_item = FundItem.new
+    @coins = Coin.all
   end
 
   def create
-    @fund_item = Fund_Item.new(fund_item_params)
+    @fund = Fund.find(params[:fund_id])
+    @fund_item = FundItem.new(fund_item_params)
+    @fund_item.coin_purchase_price_in_cents = @fund_item.coin.price_in_cents
+    @fund_item.fund = @fund
     if @fund_item.save
-      redirect_to funds_path
+      redirect_to fund_path(@fund)
     else
-      render "funds/show"
+      render :new
     end
   end
 
@@ -28,6 +33,6 @@ def new
   private
 
   def fund_item_params
-    params.require(:fund_item).permit(:coin, :quantity)
+    params.require(:fund_item).permit(:coin, :coin_id, :quantity)
   end
 end
