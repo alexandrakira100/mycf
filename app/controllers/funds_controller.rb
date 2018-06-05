@@ -7,6 +7,8 @@ class FundsController < ApplicationController
 
   def show
     @fund = Fund.find(params[:id])
+    @messages = Message.where(fund: @fund)
+    @message = Message.new
   end
 
   def new

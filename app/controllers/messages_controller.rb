@@ -2,7 +2,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    if @message_save
+    @message.user = current_user
+    @fund = Fund.find(params[:fund_id])
+    @message.fund = @fund
+    if @message.save
       redirect_to fund_path(@fund)
     else
       render "funds/show"
