@@ -1,0 +1,22 @@
+<div class="form-style-5">
+  <h1>EDIT FUND</h1>
+    <%= simple_form_for @fund do |f| %>
+      <fieldset>
+      <legend><span class="number">1</span> FUND NAME</legend>
+        <h2>Name</h2>
+        <div class="form-group">
+          <%= f.input :name, label: false%>
+        </div>
+        <h2>Coin</h2>
+        <div class="form-group">
+          <%= f.input :coin, label: false%>
+        </div>
+
+        <h2>Quantity</h2>
+        <div class="form-group">
+          <%= f.input :quantity, label: false %>
+        </div>
+
+        <%= f.submit "EDIT", class: "btn btn-primary" %>
+      <% end %>
+</div>

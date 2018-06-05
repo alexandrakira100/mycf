@@ -1,8 +1,8 @@
 class FundsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-    @funds = current_user.funds
+    @funds = current_user.funds + current_user.funds_owned
   end
 
   def show
@@ -17,11 +17,11 @@ class FundsController < ApplicationController
 
   def create
     @fund = Fund.new(fund_params)
-    @fund.user = current_user
-    if @fund.save
-      redirect_to funds_path
+    @fund.owner = current_user
+    if @fund.save!
+      redirect_to fund_path(@fund)
     else
-      render "funds/show"
+      render :new
     end
   end
 

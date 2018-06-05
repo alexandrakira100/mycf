@@ -8,11 +8,13 @@
 
 <div class="row">
   <% @funds.each do |fund| %>
+                <p>lol</p>
     <div class="col-xs-12 col-sm-12">
       <%= link_to fund_path(fund.id) do %>
             <div class="fund-info">
               <div class="fund-name">
-                <h2> <%= fund.name %></h2>
+
+                <h2> <%= fund.name%></h2>
               </div>
             </div>
           </div>
