@@ -1,0 +1,23 @@
+<div class="header1">
+  <h1>WELCOME TO BENCHMARK!</h1>
+</div>
+
+<div class="header2">
+  <h1>FIND YOUR ACTIVE FUNDS HERE</h1>
+</div>
+
+<div class="row">
+  <% @funds.each do |fund| %>
+    <div class="col-xs-12 col-sm-12">
+      <%= link_to fund_path(fund.id) do %>
+            <div class="fund-info">
+              <div class="fund-name">
+                <h2> <%= fund.name %></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
