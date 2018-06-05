@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :memberships
   has_many :funds, through: :memberships
-  has_many :funds_owned, class_name: :Fund, foreign_key: :user_id
+  has_many :funds_owned, class_name: :Fund, foreign_key: :owner_id
 
 end
