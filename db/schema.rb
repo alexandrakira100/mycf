@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_04_095344) do
+ActiveRecord::Schema.define(version: 2018_06_05_030931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coins", force: :cascade do |t|
+    t.integer "price_in_cents"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fund_items", force: :cascade do |t|
+    t.bigint "fund_id"
+    t.float "quantity"
+    t.bigint "coin_id"
+    t.integer "coin_purchase_price_in_cents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_fund_items_on_coin_id"
+    t.index ["fund_id"], name: "index_fund_items_on_fund_id"
+  end
+
+  create_table "funds", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "fund_id"
+    t.bigint "user_id"
+    t.float "allocation_share"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fund_id"], name: "index_memberships_on_fund_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "fund_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fund_id"], name: "index_messages_on_fund_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +73,15 @@ ActiveRecord::Schema.define(version: 2018_06_04_095344) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "fund_items", "coins"
+  add_foreign_key "fund_items", "funds"
+  add_foreign_key "memberships", "funds"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "messages", "funds"
+  add_foreign_key "messages", "users"
 end
