@@ -12,3 +12,12 @@
 fund_one = Fund.create!(name: "Fund A")
 fund_two = Fund.create!(name: "Fund B")
 fund_three = Fund.create!(name: "Fund C")
+
+user_one = User.create!(name: "Aki")
+user_two = User.create!(name: "Tim")
+user_three = User.create!(name: "Ammelie")
+user_four = User.create!(name: "Alex")
+
+membership_one = Membership.create!(fund: fund_one, user: user_one, allocation_share: 20.5)
+membership_two = Membership.create!(fund: fund_one, user: user_two, allocation_share: 40.5)
+membership_three = Membership.create!(fund: fund_two, user: user_three, allocation_share: 75.0)
