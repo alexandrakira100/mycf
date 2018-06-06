@@ -21,6 +21,7 @@
           <%= link_to new_fund_membership_path(@fund) do%> <br>
             <button type="button" class="btn btn-primary">Add An Investor</button>
           <% end %>
+
         <% end %>
       </div>
     </div>
@@ -33,33 +34,39 @@
 </div>
 
 
-    <div class="col-md-3 container3">
+    <div class="col-md-4 container3">
       <div class="fund-name">
         <h2><%=@fund.name%></h2>
       </div>
       <div class="fund_performance">
         <div class="market">
           <h2>Market Performance</h2>
+          <img src="http://www.coinstoploss.com/wp-content/uploads/2018/02/bitcoin-graph.jpg" alt="bitcoin-graph.jpg">
         </div>
       </div>
       <div class="composition">
         <% @fund_items.each do |fund_item| %>
-
-            <div class="Coin">
-              <h2>Coin:<%=fund_item.coin.name%> </h2>
-              <h2>Value:<%=(fund_item.coin.price_in_cents / 100.00)%>USD</h2>
-              <h2>Quantity:<%=fund_item.quantity%> </h2>
-            <% end %>
-          </div>
-        </div>
+          <table>
+            <tr>
+              <td><%=fund_item.coin.name%></td>
+              <td>USD<%=(fund_item.coin.price_in_cents / 100.00)%></td>
+              <td><%=fund_item.quantity%></td>
+              <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
       </div>
-   </div>
+      <div>
+      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
-    <div>
-      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
-    </div>
+
+
 
 
 
