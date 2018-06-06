@@ -25,10 +25,15 @@
   </div>
 </div>
 
+
+
 <div class="fund-members">
 <h2>Fund Members</h2>
 <% @fund.members.each do |member| %>
   <%= member.name %>
+<% end %>
+<%= link_to new_fund_membership_path(@fund) do%>
+  <button type="button" class="btn btn-primary">Add An Investor</button>
 <% end %>
 </div>
 
