@@ -9,6 +9,7 @@ class FundsController < ApplicationController
     @fund = Fund.find(params[:id])
     @messages = Message.where(fund: @fund)
     @message = Message.new
+    @fund_items = @fund.fund_items
   end
 
   def new
