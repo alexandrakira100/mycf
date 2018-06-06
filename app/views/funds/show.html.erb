@@ -25,6 +25,7 @@
       </div>
     </div>
 
+
 <div class="col-md-5 container2">
   <div class="message">
     <h2>Your Fund Conversation</h2>
@@ -34,6 +35,9 @@
 
 
     <div class="col-md-3 container3">
+      <div class="fund-value">
+         <h2><%=@fund.total_fund_value%></h2>
+      </div>
       <div class="fund-name">
         <h2><%=@fund.name%></h2>
       </div>
@@ -47,8 +51,9 @@
 
             <div class="Coin">
               <h2>Coin:<%=fund_item.coin.name%> </h2>
-              <h2>Value:<%=(fund_item.coin.price_in_cents / 100.00)%>USD</h2>
+              <h2>Price:<%=(fund_item.coin.price_in_cents / 100.00)%>USD</h2>
               <h2>Quantity:<%=fund_item.quantity%> </h2>
+              <h2>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity)%>USD</h2>
             <% end %>
           </div>
         </div>
@@ -56,12 +61,8 @@
    </div>
 </div>
 
-
     <div>
       <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
     </div>
-
-
-
 
 

@@ -5,6 +5,13 @@ class FundsController < ApplicationController
     @funds = current_user.funds + current_user.funds_owned
   end
 
+  def total_fund_value
+    @fund = Fund.find(params[:id])
+    @fund_item = @fund.fund_item
+    @total_fund_value = ((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).sum
+    sum += total_fund_value
+  end
+
   def show
     @fund = Fund.find(params[:id])
     @messages = Message.where(fund: @fund)
