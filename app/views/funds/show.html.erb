@@ -1,7 +1,7 @@
 
 <div class="productPage">
   <div class="row">
-    <div class="col-md-3 container 1">
+    <div class="col-md-3 container1">
       <div class="sidebar">
         <h2>Sidebar Placeholder</h2>
         <h2>All Funds</h2>
@@ -9,15 +9,29 @@
         <h2>Bitcoin Fund</h2>
         <h2>Haraldson Fund</h2>
       </div>
+      <br>
+      <div class="fund-members">
+        <h2>Fund Members</h2>
+        <% @fund.members.each do |member| %>
+          <ul>
+            <li><%= member.name %></li>
+          </ul>
+        <% end %>
+        <% if @fund.owner == current_user %>
+          <%= link_to new_fund_membership_path(@fund) do%> <br>
+            <button type="button" class="btn btn-primary">Add An Investor</button>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
-<div class="col-md-6 container2">
+
+<div class="col-md-5 container2">
   <div class="message">
-        <h2>Your Fund Conversation</h2>
-        <%= render "messages/index" %>
-        <%= render "messages/form", message: @message %>
-      </div>
+    <h2>Your Fund Conversation</h2>
+      <%= render "messages/index" %>
   </div>
+</div>
 
 
     <div class="col-md-3 container3">
@@ -50,6 +64,5 @@
     <div>
       <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
     </div>
-
 
 
