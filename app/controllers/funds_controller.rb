@@ -2,8 +2,7 @@ class FundsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    # @funds = current_user.funds + current_user.funds_owned
-    @funds = Fund.all
+    @funds = current_user.funds + current_user.funds_owned
   end
 
   def show
