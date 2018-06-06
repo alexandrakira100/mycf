@@ -1,7 +1,15 @@
-<div class="message">
-  <ul>
-    <% @messages.each do |message| %>
-      <li><%= message.content %> by <%= message.user.name %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="message">
+        <ul>
+          <% @messages.each do |message| %>
+            <li><%= render "messages/show", message: message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <%= render "messages/form", message: @message %>
+    </div>
+  </div>
 </div>
+

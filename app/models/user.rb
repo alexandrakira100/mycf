@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :funds, through: :memberships
   has_many :funds_owned, class_name: :Fund, foreign_key: :owner_id
-
+  has_many :messages, dependent: :destroy
 end
