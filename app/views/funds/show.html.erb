@@ -25,6 +25,13 @@
   </div>
 </div>
 
+<div class="fund-members">
+<h2>Fund Members</h2>
+<% @fund.members.each do |member| %>
+  <%= member.name %>
+<% end %>
+</div>
+
 <%= render "messages/index" %>
 
 
