@@ -47,5 +47,12 @@
       <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
     </div>
 
+<div class="fund-members">
+<h2>Fund Members</h2>
+<% @fund.members.each do |member| %>
+  <%= member.name %>
+<% end %>
+</div>
+
 
 
