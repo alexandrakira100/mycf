@@ -1,16 +1,28 @@
 
 <div class="productPage">
   <div class="row">
-    <div class="col-md-6 container 1">
+    <div class="col-md-3 container 1">
       <div class="sidebar">
+        <h2>Sidebar Placeholder</h2>
+        <h2>All Funds</h2>
+        <h2>Money Maker</h2>
+        <h2>Bitcoin Fund</h2>
+        <h2>Haraldson Fund</h2>
       </div>
     </div>
-    <div class="col-md-6 container2">
-      <div class="message">
-        <h2><%=@fund.name%></h2>
-      </div>
-      <div class="message">
+
+<div class="col-md-6 container2">
+<div class="message">
         <h2>Your Fund Conversation</h2>
+        <%= render "messages/index" %>
+        <%= render "messages/form", message: @message %>
+      </div>
+      </div>
+
+
+    <div class="col-md-3 container3">
+      <div class="fund-name">
+        <h2><%=@fund.name%></h2>
       </div>
       <div class="fund_performance">
         <div class="market">
@@ -18,14 +30,23 @@
         </div>
       </div>
       <div class="composition">
-        <h2>Coin:</h2>
-        <h2>Value:</h2>
+        <% @fund_items.each do |fund_item| %>
+
+            <div class="Coin">
+              <h2>Coin:<%=fund_item.coin.name%> </h2>
+              <h2>Quantity:<%=fund_item.quantity%> </h2>
+
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+   </div>
 </div>
 
 
+    <div>
+      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
+    </div>
 
 <div class="fund-members">
 <h2>Fund Members</h2>
@@ -37,6 +58,5 @@
 <% end %>
 </div>
 
-<%= render "messages/index" %>
 
 
