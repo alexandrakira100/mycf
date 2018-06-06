@@ -12,7 +12,7 @@ class MembershipsController < ApplicationController
     @membership.user = user
     @membership.fund = @fund
     if @membership.save
-      # TODO: do we email here?
+      UserMailer.invite(@membership.user).deliver_now
       redirect_to fund_path(@fund)
     else
       flash[:alert] = "Membership Not Created"
