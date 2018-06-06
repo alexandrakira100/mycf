@@ -12,6 +12,7 @@
     </div>
 
 <div class="col-md-6 container2">
+
 <div class="message">
         <h2>Your Fund Conversation</h2>
         <%= render "messages/index" %>
@@ -34,8 +35,8 @@
 
             <div class="Coin">
               <h2>Coin:<%=fund_item.coin.name%> </h2>
+              <h2>Value:<%=(fund_item.coin.price_in_cents / 100.00)%>USD</h2>
               <h2>Quantity:<%=fund_item.quantity%> </h2>
-
             <% end %>
           </div>
         </div>
