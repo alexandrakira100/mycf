@@ -16,4 +16,25 @@ class Fund < ApplicationRecord
 
     sum.round(2)
   end
+
+  def total_purchase_value
+    sum = 0
+
+    fund_items.each do |fund_item|
+      fund_value = (fund_item.coin_purchase_price_in_cents / 100.00) * fund_item.quantity
+      sum += fund_value
+    end
+
+    sum.round(2)
+  end
+
+  def profit_margin
+    (((self.total_fund_value - self.total_purchase_value)/(self.total_purchase_value))*100).round(2)
+  end
+
+  def profitable?
+    profit_margin >= 0
+  end
+
+
 end
