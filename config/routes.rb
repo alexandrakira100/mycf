@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions'
+      }
   root to: 'pages#home'
+
 
   resources :funds do
     resources :fund_items, only: [:new, :create, :edit, :update, :destroy]
@@ -15,3 +18,6 @@ Rails.application.routes.draw do
   get "search", to: "pages#search"
 
   end
+
+
+

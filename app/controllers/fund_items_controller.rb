@@ -26,6 +26,8 @@ def new
   end
 
   def destroy
+    @fund = Fund.find(params[:fund_id])
+    @fund_item = FundItem.find(params[:id])
     @fund_item.destroy
     redirect_to fund_path(@fund)
   end

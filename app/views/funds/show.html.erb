@@ -1,30 +1,75 @@
 
 <div class="productPage">
   <div class="row">
-    <div class="col-md-6 container 1">
+    <div class="col-md-3 container1">
       <div class="sidebar">
+        <h2>Sidebar Placeholder</h2>
+        <h2>All Funds</h2>
+        <h2>Money Maker</h2>
+        <h2>Bitcoin Fund</h2>
+        <h2>Haraldson Fund</h2>
+      </div>
+      <br>
+      <div class="fund-members">
+        <h2>Fund Members</h2>
+        <% @fund.members.each do |member| %>
+          <ul>
+            <li><%= member.name %></li>
+          </ul>
+        <% end %>
+        <% if @fund.owner == current_user %>
+          <%= link_to new_fund_membership_path(@fund) do%> <br>
+            <button type="button" class="btn btn-primary">Add An Investor</button>
+          <% end %>
+
+        <% end %>
       </div>
     </div>
-    <div class="col-md-6 container2">
-      <div class="message">
-        <h2><%=@fund.name%></h2>
+
+
+<div class="col-md-5 container2">
+  <div class="fund-value">
+         <h2>Current Fund Value: <%=@fund.total_fund_value%></h2>
       </div>
-      <div class="message">
-        <h2>Your Fund Conversation</h2>
+  <div class="message">
+    <h2>Your Fund Conversation</h2>
+      <%= render "messages/index" %>
+  </div>
+</div>
+
+
+    <div class="col-md-3 container3">
+
+      <div class="fund-name">
+        <h2><%=@fund.name%></h2>
       </div>
       <div class="fund_performance">
         <div class="market">
           <h2>Market Performance</h2>
+          <img src="http://www.coinstoploss.com/wp-content/uploads/2018/02/bitcoin-graph.jpg" alt="bitcoin-graph.jpg">
         </div>
       </div>
       <div class="composition">
-        <h2>Coin:</h2>
-        <h2>Value:</h2>
+        <% @fund_items.each do |fund_item| %>
+
+          <table>
+            <tr>
+              <td><%=fund_item.coin.name%></td>
+              <td>USD<%=(fund_item.coin.price_in_cents / 100.00).round(2)%></td>
+              <td><%=fund_item.quantity%></td>
+              <td>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>USD</td>
+              <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              </td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+      <div>
+      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
       </div>
     </div>
   </div>
 </div>
 
-<%= render "messages/index" %>
 
 
