@@ -2,14 +2,12 @@
     <div class="col-md-12 container 1">
       <% @fund.members.each do |member| %>
         <div class="investor-name">
-          <h2>Name:<%=@member.name%></h2>
+          <h2>Name:<%=member.name%></h2>
         </div>
 
-        <div class="share">
-          <h2>Share:<%=@member.allocation_share%></h2>
-        </div>
 
-        <div><%= link_to "X", fund_membership_path(@fund, membership), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></div>
+
+        <div><%= link_to "X", fund_membership_path(fund_id: @fund.id, id: @membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></div>
         </div>
       <% end %>
    </div>

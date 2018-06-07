@@ -1,19 +1,18 @@
 
 <div class="productPage">
   <div class="row">
-    <div class="col-md-3 container1">
+    <div class="col-md-2 container1">
       <div class="sidebar">
-        <h2>Sidebar Placeholder</h2>
-        <h2>All Funds</h2>
+        <h1>My Funds</h1>
         <h2>Money Maker</h2>
         <h2>Bitcoin Fund</h2>
         <h2>Haraldson Fund</h2>
       </div>
       <br>
       <div class="fund-members">
-        <h2>Fund Members</h2>
+        <h1>Fund Members</h1>
         <% @fund.members.each do |member| %>
-           <%= link_to fund_membership_path(member.id) do %>
+           <%= link_to fund_membership_path(@fund, member.id) do %>
             <ul>
               <li><%= member.name %></li>
             </ul>
@@ -28,10 +27,15 @@
     </div>
 
 
-<div class="col-md-5 container2">
+<div class="col-md-6 container2">
+
+    <div class="fund-name">
+        <h1><%=@fund.name%></h1>
+      </div>
     <div class="fund-value">
-           <h2>Total:<%=@fund.total_fund_value%></h2>
+           <h2>Current Total Fund Value: <%=@fund.total_fund_value%> USD</h2>
     </div>
+    <hr class="line-divider">
     <div class="message">
       <h2>Your Fund Conversation</h2>
         <%= render "messages/index" %>
@@ -39,35 +43,44 @@
 </div>
 
 
-    <div class="col-md-3 container3">
-
-      <div class="fund-name">
-        <h2><%=@fund.name%></h2>
-      </div>
+    <div class="col-md-4 container3">
       <div class="fund_performance">
         <div class="market">
-          <h2>Market Performance</h2>
-          <img src="http://www.coinstoploss.com/wp-content/uploads/2018/02/bitcoin-graph.jpg" alt="bitcoin-graph.jpg">
+          <h1>Market Performance</h1>
+          <img src="https://www.sierrachart.com/images/HomePageImages/1.png" alt="bitcoin-graph.jpg" class ="graph-picture">
+
         </div>
       </div>
       <div class="composition">
+        <table class="table-headers">
+            <div>
+         <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), class:"btn-medium" %></h1>
+        </div>
+            <tr>
+              <td>     </td>
+              <td>Coin</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Value</td>
+            </tr>
+          </table>
         <% @fund_items.each do |fund_item| %>
 
-          <table>
+          <table class="table-coins">
             <tr>
-              <td><%=fund_item.coin.name%></td>
-              <td>USD<%=(fund_item.coin.price_in_cents / 100.00).round(2)%></td>
-              <td><%=fund_item.quantity%></td>
-              <td>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>USD</td>
-              <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+               <td><%= link_to "X", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              </td>
+            <td><%=fund_item.coin.name%></td>
+            <td><%=(fund_item.coin.price_in_cents / 100.00).round(2)%>$</td>
+            <td><%=fund_item.quantity%></td>
+            <td><%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>$</td>
               </td>
             </tr>
           </table>
         <% end %>
+
       </div>
-      <div>
-      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
-      </div>
+
     </div>
   </div>
 </div>
