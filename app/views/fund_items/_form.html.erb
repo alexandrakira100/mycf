@@ -2,7 +2,7 @@
   <h1>ADD NEW FUND ITEM</h1>
     <%= simple_form_for [ @fund, @fund_item ] do |f| %>
       <div class="form-group">
-        <% options = @fund_item.nil? ? { selected: @coins.first } : {} %>
+        <% options = @fund_item.persisted? ? {} : { selected: @coins.first } %>
         <%= f.association :coin, options.merge(collection: @coins)
          %>
       </div>
@@ -12,5 +12,3 @@
       <%= f.submit "ADD", class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<h1><%= () %></h1>
