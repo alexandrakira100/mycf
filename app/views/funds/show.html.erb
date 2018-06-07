@@ -13,28 +13,29 @@
       <div class="fund-members">
         <h2>Fund Members</h2>
         <% @fund.members.each do |member| %>
-          <ul>
-            <li><%= member.name %></li>
-          </ul>
-        <% end %>
-        <% if @fund.owner == current_user %>
-          <%= link_to new_fund_membership_path(@fund) do%> <br>
-            <button type="button" class="btn btn-primary">Add An Investor</button>
+           <%= link_to fund_membership_path(member.id) do %>
+            <ul>
+              <li><%= member.name %></li>
+            </ul>
           <% end %>
-
         <% end %>
       </div>
+        <% if @fund.owner == current_user %>
+            <%= link_to new_fund_membership_path(@fund) do%> <br>
+              <button type="button" class="btn btn-primary">Add An Investor</button>
+            <% end %>
+          <% end %>
     </div>
 
 
 <div class="col-md-5 container2">
-  <div class="fund-value">
-         <h2>Current Fund Value: <%=@fund.total_fund_value%></h2>
-      </div>
-  <div class="message">
-    <h2>Your Fund Conversation</h2>
-      <%= render "messages/index" %>
-  </div>
+    <div class="fund-value">
+           <h2>Total:<%=@fund.total_fund_value%></h2>
+    </div>
+    <div class="message">
+      <h2>Your Fund Conversation</h2>
+        <%= render "messages/index" %>
+    </div>
 </div>
 
 
