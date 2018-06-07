@@ -60,6 +60,8 @@
               <td>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>USD</td>
               <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
               </td>
+              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %>
+              </td>
             </tr>
           </table>
         <% end %>
