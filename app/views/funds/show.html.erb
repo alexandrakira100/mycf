@@ -45,8 +45,6 @@
 
     <div class="col-md-3 container3">
       <div class="fund-name">
-        <%# alpha = (((@fund.total_fund_value - @fund.total_purchase_value)/(@fund.total_purchase_value))*100).round(2)%>
-        <%# if alpha >= 0 %>
           <div>
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
           </div>
