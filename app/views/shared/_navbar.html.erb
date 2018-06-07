@@ -1,27 +1,34 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
   <% end %>
+  <a href="/" class="navbar-wagon-brand">
+    <%= image_tag("BM.png") %>
+  </a>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-      <div>
-        <%= link_to "MY FUNDS", funds_path, class:"navbar-wagon-item navbar-wagon-link" %>
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div >
+        <%= link_to "My Funds", funds_path, class:"navbar-wagon-item navbar-wagon-link" %>
       </div>
 
-    <% end %>
+      <div >
+        <%= link_to "About us", about_path, class:"navbar-wagon-item navbar-wagon-link" %>
+      </div>
 
-    <% if user_signed_in? %>
-      <div>
-      <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"btn-medium-2"  %>
+      <div >
+        <%= link_to "Help", help_path, class:"navbar-wagon-item navbar-wagon-link" %>
       </div>
-    <% else %>
+
       <div>
-      <%= link_to 'LOGIN', new_user_session_path, class:"btn-medium-2"   %>
+        <h1 class="rnd-bnt">"Launched ICO"</h1>
       </div>
-    <% end %>
+    </div>
+
+
+
+
+
 
 
   <!-- Dropdown list appearing on mobile only -->
@@ -36,5 +43,5 @@
     </div>
   </div>
 </div>
-</div>
+
 

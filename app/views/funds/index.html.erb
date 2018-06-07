@@ -1,3 +1,26 @@
+<div class="home-banner">
+
+  <div class="btn-group">
+    <button type="button"><a href="#" class="btn-primary">CREATE FUND</a></button>
+    <button type="button" class="button">
+      <a href="#" class="button">
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"btn-medium-2"  %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to 'LOGIN', new_user_session_path, class:"btn-medium-2"   %>
+          </div>
+        <% end %>
+      </a>
+    </button>
+  </div>
+
+
+</div>
+
+
 <div class="header1">
   <h1>WELCOME TO BENCHMARK!</h1>
 </div>
