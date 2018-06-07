@@ -1,6 +1,6 @@
 class FundItemsController < ApplicationController
 
-  before_action :set_fund, only: [:new, :create, :edit, :destroy ]
+  before_action :set_fund, only: [:new, :create, :edit, :update, :destroy ]
 
   before_action :set_fund_item, only: [:edit, :update, :destroy ]
 

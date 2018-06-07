@@ -1,17 +1,41 @@
 .sidebar h2 {
-font-size: 24px;
+font-size: 18px;
+}
+
+.sidebar h1 {
+font-size: 23px;
 }
 
 .fund-members h2 {
-font-size: 24px;
+font-size: 23px;
+}
+
+.fund-members h1 {
+font-size: 23px;
+}
+
+.fund-name h1 {
+font-size: 23px;
 }
 
 .container1 {
 padding-left: 20px;
+background-color: #DFE6EA;
+height: 100vh;
+color: #787D7F;
+
+}
+
+.container2 h2 {
+font-size: 20px;
+color: #787D7F;
+
 }
 
 .container3 h2 {
-font-size: 30px;
+font-size: 20px;
+color: #787D7F;
+
 }
 
 .message {
@@ -20,7 +44,7 @@ font-size: 30px;
 }
 
 .message h2 {
- font-size: 30px;
+ font-size: 20px;
 }
 
 td {
@@ -30,4 +54,38 @@ td {
 .market img{
   width: 100%;
   height: auto;
+}
+
+
+.table-coins {
+  justify-content: space-around;
+}
+
+.table-coins td {
+  font-size: 17px;
+}
+
+.line-divider {
+  border-top-color: grey;
+}
+
+.market {
+  width: 80%;
+}
+
+.market h1 {
+font-size: 23px;
+}
+
+.composition h1 {
+font-size: 23px;
+}
+
+
+.green-alpha {
+  color: green;
+}
+
+.red-alpha {
+  color: red;
 }
