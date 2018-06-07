@@ -13,16 +13,18 @@
       <div class="fund-members">
         <h2>Fund Members</h2>
         <% @fund.members.each do |member| %>
-          <ul>
-            <li><%= member.name %></li>
-          </ul>
-        <% end %>
-        <% if @fund.owner == current_user %>
-          <%= link_to new_fund_membership_path(@fund) do%> <br>
-            <button type="button" class="btn btn-primary">Add An Investor</button>
+           <%= link_to fund_membership_path(member.id) do %>
+            <ul>
+              <li><%= member.name %></li>
+            </ul>
           <% end %>
         <% end %>
       </div>
+        <% if @fund.owner == current_user %>
+            <%= link_to new_fund_membership_path(@fund) do%> <br>
+              <button type="button" class="btn btn-primary">Add An Investor</button>
+            <% end %>
+          <% end %>
     </div>
     <div class="col-md-5 container2">
       <div class="fund-value">
@@ -61,6 +63,8 @@
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
               <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              </td>
+              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %>
               </td>
             </tr>
             <% end %>

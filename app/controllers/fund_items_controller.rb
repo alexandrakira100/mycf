@@ -1,12 +1,16 @@
 class FundItemsController < ApplicationController
-def new
-    @fund = Fund.find(params[:fund_id])
+
+  before_action :set_fund, only: [:new, :create, :edit, :destroy ]
+
+  before_action :set_fund_item, only: [:edit, :update, :destroy ]
+
+  before_action :set_coins, only: [:new, :edit]
+
+  def new
     @fund_item = FundItem.new
-    @coins = Coin.all
   end
 
   def create
-    @fund = Fund.find(params[:fund_id])
     @fund_item = FundItem.new(fund_item_params)
     @fund_item.coin_purchase_price_in_cents = @fund_item.coin.price_in_cents
     @fund_item.fund = @fund
@@ -26,13 +30,23 @@ def new
   end
 
   def destroy
-    @fund = Fund.find(params[:fund_id])
-    @fund_item = FundItem.find(params[:id])
     @fund_item.destroy
     redirect_to fund_path(@fund)
   end
 
   private
+
+  def set_coins
+    @coins = Coin.all
+  end
+
+  def set_fund
+    @fund = Fund.find(params[:fund_id])
+  end
+
+  def set_fund_item
+    @fund_item = FundItem.find(params[:id])
+  end
 
   def fund_item_params
     params.require(:fund_item).permit(:coin, :coin_id, :quantity)
