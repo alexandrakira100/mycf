@@ -40,7 +40,7 @@ body {
   align-items: absolute;
   right: 20px;
   justify-content: space-between;
-  margin-left: 600px;
+  margin-left: 800px;
 }
 
 /* Basic navbar item */
@@ -109,9 +109,21 @@ body {
 h1 {
   color: #79B4A9;
   font-size: 15px;
-  margin-bottom: 23px;
+  margin-bottom: 50px;
 }
 
+h5 {
+  color: #F46036;
+  border: 1px solid #F46036;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+p {
+  font-size: 30px;
+}
 
 
 .rnd-bnt {
