@@ -28,6 +28,9 @@
 
 
 <div class="col-md-5 container2">
+  <div class="fund-value">
+         <h2>Current Fund Value: <%=@fund.total_fund_value%></h2>
+      </div>
   <div class="message">
     <h2>Your Fund Conversation</h2>
       <%= render "messages/index" %>
@@ -36,9 +39,7 @@
 
 
     <div class="col-md-3 container3">
-      <div class="fund-value">
-         <h2><%=@fund.total_fund_value%></h2>
-      </div>
+
       <div class="fund-name">
         <h2><%=@fund.name%></h2>
       </div>
@@ -50,11 +51,13 @@
       </div>
       <div class="composition">
         <% @fund_items.each do |fund_item| %>
+
           <table>
             <tr>
               <td><%=fund_item.coin.name%></td>
-              <td>USD<%=(fund_item.coin.price_in_cents / 100.00)%></td>
+              <td>USD<%=(fund_item.coin.price_in_cents / 100.00).round(2)%></td>
               <td><%=fund_item.quantity%></td>
+              <td>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>USD</td>
               <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
               </td>
             </tr>
