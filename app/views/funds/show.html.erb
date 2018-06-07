@@ -35,6 +35,7 @@
       </div>
     <div class="fund-value">
              <h2>Current Fund Value: <%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+
           </div>
     <hr class="line-divider">
     <div class="message">
@@ -45,11 +46,13 @@
 
     <div class="col-md-3 container3">
       <div class="fund-name">
-        <%# alpha = (((@fund.total_fund_value - @fund.total_purchase_value)/(@fund.total_purchase_value))*100).round(2)%>
-        <%# if alpha >= 0 %>
+
+        <% if @fund.not_empty_fund? %>
+
           <div>
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
           </div>
+        <% end %>
       </div>
       <div class="fund-headline-profit">
         <h2>Profit: $<%=number_with_precision((@fund.total_fund_value - @fund.total_purchase_value), :precision => 2, :delimiter => ',')%></h2>
