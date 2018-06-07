@@ -2,11 +2,16 @@
   <h1>ADD NEW FUND</h1>
     <%= simple_form_for @fund do |f| %>
       <fieldset>
-      <legend><span class="number">1</span> FUND NAME</legend>
-        <h2>Please insert the name of your fund</h2>
+
+      <legend><span></span> FUND NAME</legend>
+        <h2>Name</h2>
         <div class="form-group">
           <%= f.input :name, label: false%>
         </div>
-        <%= f.submit "ADD FUND", class: "btn btn-primary" %>
+        <div class="form-group">
+          <%= text_field_tag(:allocation_share)%>
+        </div>
+        <%= f.submit "ADD", class: "btn btn-primary" %>
+
       <% end %>
 </div>

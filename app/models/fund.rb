@@ -36,5 +36,7 @@ class Fund < ApplicationRecord
     profit_margin >= 0
   end
 
-
+  def not_empty_fund?
+    self.fund_items.any?
+  end
 end
