@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  margin-top: 35px;
+  font-size: 30px;
+  color: #62B8AB;
+  font-weight: lighter;
+}
+
+h2 {
+  margin-top: 35px;
+  font-size: 20px;
+  color: #9C9C9C;
+  font-weight: lighter;
+}
+
+.form-style-5{
+  margin: 100px;
+
+}
+
+  input {
+    background-color: white;
+  }
+
+.my-input {
+  color: #F4F4F4;
+  border: 1px solid #F4F4F4;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+
+.my-btn {
+  color: #FF4B04;
+  border: 1px solid #FF4B04;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+.my-btn:hover {
+  opacity: 1;
+  text-decoration: none;
+  // color: #F4F4F4;
+  border: 1px solid #9C9C9C;
+}

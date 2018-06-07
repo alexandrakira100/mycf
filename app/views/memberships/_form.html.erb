@@ -1,12 +1,23 @@
+
+
 <div class="form-style-5">
-  <h1>ADD NEW MEMBERSHIP</h1>
+  <div class="header">
+   <h1>ADD NEW MEMBERSHIP</h1>
+  </div>
     <%= simple_form_for [ @fund, @membership ] do |f| %>
       <div class="form-group">
-        <%= text_field_tag(:email) %>
+        <h2>Email adress</h2>
+        <%= text_field_tag(:email, "",class: 'my-input') %>
       </div>
       <div class="form-group">
-        <%= f.input :allocation_share %>
+        <h2> Total share allocation of member ( % ) </h2>
+        <%= f.input :allocation_share, label: false, class: 'my-input' %>
       </div>
-      <%= f.submit "ADD", class: "btn btn-primary" %>
+      <%= f.submit "ADD", class: "my-btn" %>
   <% end %>
 </div>
+
+
+
+
+
