@@ -1,6 +1,7 @@
 <div class="message <%= message.from?(current_user) ? "right" : "" %>">
-  <%= image_tag "logo.png", class: "avatar-logo" %>
+<%= image_tag message.user.photo.nil? ? "logo.png" : message.user.photo, class: "avatar-logo"%>
   <div class="message-content">
-    <%= message.content %> by <%= message.user.name %>
+    <%= message.content %> - <%= message.user.name %>
   </div>
 </div>
+
