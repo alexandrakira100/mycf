@@ -1,19 +1,18 @@
 
 <div class="productPage">
   <div class="row">
-    <div class="col-md-3 container1">
+    <div class="col-md-2 container1">
       <div class="sidebar">
-        <h2>Sidebar Placeholder</h2>
-        <h2>All Funds</h2>
+        <h1>My Funds</h1>
         <h2>Money Maker</h2>
         <h2>Bitcoin Fund</h2>
         <h2>Haraldson Fund</h2>
       </div>
       <br>
       <div class="fund-members">
-        <h2>Fund Members</h2>
+        <h1>Fund Members</h1>
         <% @fund.members.each do |member| %>
-           <%= link_to fund_membership_path(member.id) do %>
+           <%= link_to fund_membership_path(@fund, member.id) do %>
             <ul>
               <li><%= member.name %></li>
             </ul>
@@ -26,18 +25,30 @@
             <% end %>
           <% end %>
     </div>
-    <div class="col-md-5 container2">
-      <div class="fund-value">
-             <h2>Current Fund Value: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
-          </div>
-      <div class="message">
-        <h2>Your Fund Conversation</h2>
-          <%= render "messages/index" %>
+
+
+
+<div class="col-md-6 container2">
+
+    <div class="fund-name">
+        <h1><%=@fund.name%></h1>
       </div>
+    <div class="fund-value">
+             <h2>Current Fund Value: <%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+
+          </div>
+    <hr class="line-divider">
+    <div class="message">
+      <h2>Your Fund Conversation</h2>
+        <%= render "messages/index" %>
     </div>
+</div>
+
     <div class="col-md-3 container3">
       <div class="fund-name">
+
         <% if @fund.not_empty_fund? %>
+
           <div>
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
           </div>
@@ -46,37 +57,47 @@
       <div class="fund-headline-profit">
         <h2>Profit: $<%=number_with_precision((@fund.total_fund_value - @fund.total_purchase_value), :precision => 2, :delimiter => ',')%></h2>
       </div>
+
       <div class="fund_performance">
         <div class="market">
-          <h2>Market Performance</h2>
-          <img src="http://www.coinstoploss.com/wp-content/uploads/2018/02/bitcoin-graph.jpg" alt="bitcoin-graph.jpg">
+          <h1>Market Performance</h1>
+          <img src="https://www.sierrachart.com/images/HomePageImages/1.png" alt="bitcoin-graph.jpg" class ="graph-picture">
+
         </div>
       </div>
+
       <div class="composition">
-        <table>
-           <tr>
-              <th>Coin</th>
-              <th>Price</th>
-              <th>Holdings</th>
-              <th>Value</th>
-            </tr>
-            <% @fund_items.each do |fund_item| %>
+        <table class="table-headers">
+          <div>
+            <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), class:"btn-medium" %></h1>
+          </div>
+
             <tr>
+              <td>     </td>
+              <td>Coin</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Value</td>
+            </tr>
+        </table>
+
+        <% @fund_items.each do |fund_item| %>
+
+          <table class="table-coins">
+            <tr>
+              <td><%= link_to "X", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              </td>
               <td><%=fund_item.coin.name%></td>
               <td>$<%=number_with_precision((fund_item.coin.price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
-              <td><%= link_to "DELETE ITEM", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
-              </td>
-              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %>
-              </td>
+
+              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %></td>
             </tr>
-            <% end %>
           </table>
-        </div>
-      <div>
-      <%= link_to "ADD NEW ITEM", new_fund_fund_item_path(@fund), class:"btn-medium" %>
+        <% end %>
       </div>
+
     </div>
   </div>
 </div>

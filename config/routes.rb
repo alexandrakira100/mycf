@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :funds do
     resources :fund_items, only: [:new, :create, :edit, :update, :destroy]
-    resources :memberships, only: [:new, :create, :destroy]
+    resources :memberships, only: [:new, :create, :destroy, :show]
     resources :messages, only: [:create]
   end
 
