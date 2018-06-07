@@ -42,7 +42,7 @@
         <%= render "messages/index" %>
     </div>
 </div>
-  
+
     <div class="col-md-3 container3">
       <div class="fund-name">
         <%# alpha = (((@fund.total_fund_value - @fund.total_purchase_value)/(@fund.total_purchase_value))*100).round(2)%>
@@ -62,11 +62,13 @@
 
         </div>
       </div>
+
       <div class="composition">
         <table class="table-headers">
-            <div>
-         <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), class:"btn-medium" %></h1>
-        </div>
+          <div>
+            <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), class:"btn-medium" %></h1>
+          </div>
+
             <tr>
               <td>     </td>
               <td>Coin</td>
@@ -74,26 +76,25 @@
               <td>Quantity</td>
               <td>Value</td>
             </tr>
-          </table>
+        </table>
+
         <% @fund_items.each do |fund_item| %>
 
           <table class="table-coins">
             <tr>
-               <td><%= link_to "X", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
+              <td><%= link_to "X", fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn-medium" %>
               </td>
               <td><%=fund_item.coin.name%></td>
               <td>$<%=number_with_precision((fund_item.coin.price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
 
-              </td>
-              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %>
-              </td>
+              <td><%= link_to "CHANGE AMOUNT", edit_fund_fund_item_path(@fund, fund_item), class:"btn-medium" %></td>
             </tr>
-            <% end %>
           </table>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>
