@@ -27,6 +27,9 @@
 
 
 <div class="col-md-5 container2">
+  <div class="fund-value">
+         <h2>Current Fund Value: <%=@fund.total_fund_value%></h2>
+      </div>
   <div class="message">
     <h2>Your Fund Conversation</h2>
       <%= render "messages/index" %>
@@ -35,9 +38,7 @@
 
 
     <div class="col-md-3 container3">
-      <div class="fund-value">
-         <h2><%=@fund.total_fund_value%></h2>
-      </div>
+
       <div class="fund-name">
         <h2><%=@fund.name%></h2>
       </div>
@@ -51,9 +52,9 @@
 
             <div class="Coin">
               <h2>Coin:<%=fund_item.coin.name%> </h2>
-              <h2>Price:<%=(fund_item.coin.price_in_cents / 100.00)%>USD</h2>
+              <h2>Price:<%=(fund_item.coin.price_in_cents / 100.00).round(2)%>USD</h2>
               <h2>Quantity:<%=fund_item.quantity%> </h2>
-              <h2>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity)%>USD</h2>
+              <h2>Value:<%=((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity).round(2)%>USD</h2>
             <% end %>
           </div>
         </div>
