@@ -28,4 +28,13 @@ class Fund < ApplicationRecord
     sum.round(2)
   end
 
+  def profit_margin
+    (((self.total_fund_value - self.total_purchase_value)/(self.total_purchase_value))*100).round(2)
+  end
+
+  def profitable?
+    profit_margin >= 0
+  end
+
+
 end
