@@ -32,10 +32,13 @@ color: #787D7F;
 
 }
 
+.col-md-4 {
+margin-left: 5%;
+}
+
 .container3 h2 {
 font-size: 20px;
 color: #787D7F;
-
 }
 
 .message {
@@ -89,3 +92,14 @@ font-size: 23px;
 .red-alpha {
   color: red;
 }
+
+.table-coins th {
+  padding: 10px;
+}
+
+.table-coins td {
+  padding-left: 8px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
