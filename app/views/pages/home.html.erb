@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-banner">
+
+  <div class="btn-group">
+    <button type="button"><a href="#" class="button-1">CREATE FUND</a></button>
+    <button type="button" class="button-2">
+      <a href="#" class="button-2">
+        <% if user_signed_in? %>
+          <div>
+            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"button-2"  %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to 'LOGIN', new_user_session_path, class:"button-2"   %>
+          </div>
+        <% end %>
+      </a>
+    </button>
+  </div>
+
+
+</div>
+
+

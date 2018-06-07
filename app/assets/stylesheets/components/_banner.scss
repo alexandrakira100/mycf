@@ -1,0 +1,35 @@
+.home-banner {
+  background-image: url("background.png");
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  text-align: center;
+  padding-top: 45vh;
+}
+
+.button .button-1 {
+  // padding-top: 0px;
+  // padding-bottom: 0px;
+  // padding-left: 0px;
+  // padding-right: 0px;
+  // border-bottom-width: 0px;
+  // border-top-width: 0px;
+  // border-left-width: 0px;
+  // border-right-width: 0px;
+    padding: 0px 0px 0px !important;
+}
+.button-1 {
+  background-color: #79B4A9;
+  border: none;
+  font-family: 'Assistant', sans-serif;
+  font-weight: lighter;
+  color: #C4C4C4;
+}
+
+.button-2 {
+  background-color: #F46036;
+  border: none;
+  font-family: 'Assistant', sans-serif;
+  font-weight: lighter;
+  color: #C4C4C4;
+}

@@ -4,6 +4,12 @@ class PagesController < ApplicationController
   def about
   end
 
+  def help
+  end
+
+  def search
+  end
+
   def index
   end
 
