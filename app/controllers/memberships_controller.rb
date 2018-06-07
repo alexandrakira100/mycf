@@ -5,6 +5,11 @@ class MembershipsController < ApplicationController
     @membership = Membership.new
   end
 
+  def show
+    @fund = Fund.find(params[:fund_id])
+    @membership = Membership.find_by(user_id: params[:id], fund_id: params[:fund_id])
+  end
+
   def create
     @membership = Membership.new(membership_params)
     @fund = Fund.find(params[:fund_id])
@@ -20,8 +25,9 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
+    @membership = Membership.find(params[:id])
     @membership.destroy
-    redirect_to fund_path(@fund)
+    redirect_to fund_path(params[:fund_id])
   end
 
   private
