@@ -3,10 +3,12 @@ FundItem.destroy_all
 Fund.destroy_all
 User.destroy_all
 Coin.destroy_all
-user_one = User.create!(name: "Aki", email: "aki@test.com", password: "123456", confirmed_at:Time.current)
-user_two = User.create!(name: "Tim", email: "tim@test.com", password: "123456", confirmed_at:Time.current)
-user_three = User.create!(name: "Ammelie", email: "ammelie@test.com", password: "123456", confirmed_at:Time.current)
-user_four = User.create!(name: "Alex", email: "alex@test.com", password: "123456", confirmed_at:Time.current)
+
+user_one = User.create!(name: "Aki", email: "aki@test.com", password: "123456", confirmed_at:Time.current, photo: "aki.jpg")
+user_two = User.create!(name: "Tim", email: "tim@test.com", password: "123456", confirmed_at:Time.current, photo: "tim.jpg")
+user_three = User.create!(name: "Ammelie", email: "ammelie@test.com", password: "123456", confirmed_at:Time.current, photo: "ammelie.jpg")
+user_four = User.create!(name: "Alex", email: "alex@test.com", password: "123456", confirmed_at:Time.current, photo: "alex.jpg")
+
 
 fund_one = Fund.create!(name: "Fund A", owner: user_three)
 fund_two = Fund.create!(name: "Fund B", owner: user_one)

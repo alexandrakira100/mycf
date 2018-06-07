@@ -69,6 +69,7 @@
       </div>
     <div class="fund-value">
              <h2>Current Fund Value: <%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+
           </div>
     <hr class="line-divider">
     <div class="message">
@@ -76,8 +77,8 @@
         <%= render "messages/index" %>
     </div>
 </div>
-
     <div class="col-md-4 container3">
+
       <div class="fund_performance">
         <div class="market">
           <h1>Market Performance</h1>
