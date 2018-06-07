@@ -1,9 +1,8 @@
 <div class="home-banner">
 
   <div class="btn-group">
-    <button type="button"><a href="#" class="btn-primary">CREATE FUND</a></button>
+    <button type="button"><%= link_to 'CREATE FUND', new_fund_path, class:"btn btn-primary"%></button>
     <button type="button" class="button">
-      <a href="#" class="button">
         <% if user_signed_in? %>
           <div>
             <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"btn-medium-2"  %>
