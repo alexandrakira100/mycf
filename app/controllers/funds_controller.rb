@@ -27,6 +27,7 @@ class FundsController < ApplicationController
     @fund = Fund.new(fund_params)
     @fund.owner = current_user
     if @fund.save!
+      Membership.create(fund: @fund, user:current_user, allocation_share:params[:allocation_share].to_f)
       redirect_to fund_path(@fund)
     else
       render :new
