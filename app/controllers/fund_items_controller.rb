@@ -4,7 +4,7 @@ class FundItemsController < ApplicationController
 
   before_action :set_fund_item, only: [:edit, :update, :destroy ]
 
-  before_action :set_coins, only: [:new, :edit]
+  before_action :set_coins, only: [:new, :create, :edit]
 
   def new
     @fund_item = FundItem.new
