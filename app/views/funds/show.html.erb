@@ -65,7 +65,7 @@
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
         </div>
          <div class="fund-headline-profit">
-        <h2>Profit: $<%=number_with_precision((@fund.total_fund_value - @fund.total_purchase_value), :precision => 2, :delimiter => ',')%></h2>
+        <h2>Profit: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
       </div>
     <div class="fund-value">
              <h2>Current Fund Value: <%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
@@ -96,7 +96,8 @@
           <thead>
             <tr>
               <th>Coin</th>
-              <th>Price</th>
+              <th>Purchase Price</th>
+              <th>Current Price</th>
               <th>Amount</th>
               <th>Value</th>
             </tr>
@@ -105,10 +106,10 @@
 
             <tr>
               <td><%=fund_item.coin.name%></td>
+              <td>$<%=number_with_precision((fund_item.coin_purchase_price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision((fund_item.coin.price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
-
               <td>
                 <%= link_to edit_fund_fund_item_path(@fund, fund_item), class:"btn" do %>
                   <i class="fas fa-cog"></i>
