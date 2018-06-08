@@ -1,19 +1,13 @@
 <div class="home-banner">
 
-  <div class="btn-group">
-    <button type="button"><%= link_to 'CREATE FUND', new_fund_path, class:"btn btn-primary"%></button>
-    <button type="button" class="button">
-        <% if user_signed_in? %>
-          <div>
-            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"btn-medium-2"  %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to 'LOGIN', new_user_session_path, class:"btn-medium-2"   %>
-          </div>
-        <% end %>
-      </a>
-    </button>
+  <div class="col-xs-12 col-sm-4">
+  </div>
+
+  <div class="col-xs-12 col-sm-4">
+      <%= link_to 'CREATE FUND', new_fund_path, class:"btn "%>
+  </div>
+
+  <div class="col-xs-12 col-sm-4">
   </div>
 
 
@@ -35,7 +29,7 @@
             <div class="fund-info">
               <div class="fund-name">
 
-                <h2> <%= fund.name%></h2>
+                <h2>    ☻   <%= fund.name%></h2>
               </div>
             </div>
           </div>
