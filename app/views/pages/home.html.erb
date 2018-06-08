@@ -1,19 +1,21 @@
 <div class="home-banner">
 
-  <div class="btn-group">
-    <button type="button"><%= link_to 'CREATE FUND', new_fund_path, class:"btn btn-primary"%></button>
-      <button type="button" class="button-2">
-        <% if user_signed_in? %>
-          <div>
-            <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"button-2"  %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to 'LOGIN', new_user_session_path, class:"button-2"   %>
-          </div>
-        <% end %>
-      </button>
+
+  <div class="col-xs-12 col-sm-4">
+
   </div>
+
+  <div class="col-xs-12 col-sm-4">
+      <%= link_to 'CREATE FUND', new_fund_path, class:"btn "%>
+  </div>
+
+  <div class="col-xs-12 col-sm-4">
+    <div class="description-1">
+      <h2>“<b>BenchMark makes it easy to invest in crypto with your social circle.</b>”</h2>
+      <p style =" top: 20px;">“Invest for others. Invest with them. BenchMark is a coordination tool which helps everyone stay on the same page.”</p>
+    </div>
+  </div>
+
 
 
 </div>

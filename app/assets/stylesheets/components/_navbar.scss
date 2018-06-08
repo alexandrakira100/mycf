@@ -35,19 +35,23 @@ body {
 }
 
 /* Right section */
-.navbar-wagon-right {
-  display: flex;
-  align-items: absolute;
-  right: 20px;
-  justify-content: space-between;
-  margin-left: 800px;
+// .navbar-wagon-right {
+//   display: flex-end
+//   align-items: absolute;
+//   right: 20px;
+//   justify-content: space-between;
+//   margin-left: 800px;
+// }
+
+.container {
+  display: flex-end;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
-  display: flex;
+  display: flex-end;
   align-items: absolute;
   right: 20px;
   justify-content: space-between;
