@@ -39,4 +39,8 @@ class Fund < ApplicationRecord
   def not_empty_fund?
     self.fund_items.any?
   end
+
+  def total_size
+    memberships.pluck(:allocation_share).inject(:+)
+  end
 end
