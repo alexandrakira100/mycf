@@ -8,6 +8,7 @@ class MembershipsController < ApplicationController
   def show
     @fund = Fund.find(params[:fund_id])
     @membership = Membership.find_by(user_id: params[:id], fund_id: params[:fund_id])
+    @total_fund_size = @fund.memberships.pluck(:allocation_share).inject(:+)
   end
 
   def create
