@@ -50,6 +50,10 @@ coin_nine = Coin.create!(
   name: 'NEO',
   price_in_cents: 5246)
 
+coin_ten = Coin.create!(
+  name: 'USD',
+  price_in_cents: 100)
+
 
 fund_item_one = FundItem.create!(fund: fund_one, quantity: 9987.54, coin: coin_three, coin_purchase_price_in_cents: 32)
 fund_item_two = FundItem.create!(fund: fund_one, quantity: 24.611, coin: coin_four, coin_purchase_price_in_cents: 16098)

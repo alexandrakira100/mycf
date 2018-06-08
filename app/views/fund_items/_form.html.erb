@@ -1,10 +1,13 @@
 <div class="form-style-5">
-  <h1>ADD NEW FUND ITEM</h1>
+  <h1>EDIT FUND ITEM</h1>
     <%= simple_form_for [ @fund, @fund_item ] do |f| %>
       <div class="form-group">
         <% options = @fund_item.persisted? ? {} : { selected: @coins.first } %>
         <%= f.association :coin, options.merge(collection: @coins)
          %>
+      </div>
+      <div class="form-group">
+        <%= f.input :coin_purchase_price_in_cents %>
       </div>
       <div class="form-group">
         <%= f.input :quantity %>

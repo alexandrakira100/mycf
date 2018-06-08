@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-2 container1">
       <div class="sidebar">
-        <h1>Owned Funds</h1>
+        <h1>Fund Owner</h1>
         <div class="owned-funds">
          <% if current_user.funds_owned.present? %>
           <% current_user.funds_owned.each do |fund| %>
@@ -15,11 +15,11 @@
           <% end %>
          <% end %>
         <% else %>
-          <p>No owned funds yet.</p>
+          <h2>No owned funds yet.</h2>
         <% end %>
        </div>
 
-         <h1>Funds Invested In</h1>
+         <h1>Fund Investor</h1>
         <div class="member-funds">
          <% if current_user.funds.present? %>
           <% current_user.funds.each do |fund| %>
@@ -31,7 +31,7 @@
         <% end %>
 
         <% else %>
-          <p>No funds participated in yet.</p>
+          <h2>No funds yet.</h2>
         <% end %>
       </div>
       </div>
@@ -47,9 +47,10 @@
           <% end %>
         <% end %>
       </div>
+
         <% if @fund.owner == current_user %>
             <%= link_to new_fund_membership_path(@fund) do%> <br>
-              <button type="button" class="btn btn-primary">Add An Investor</button>
+              <button type="button", id="add-investor", class="btn btn-primary">add</button>
             <% end %>
           <% end %>
     </div>
@@ -65,15 +66,15 @@
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
         </div>
          <div class="fund-headline-profit">
-        <h2>Profit: $<%=number_with_precision((@fund.total_fund_value - @fund.total_purchase_value), :precision => 2, :delimiter => ',')%></h2>
+        <h2>Profit: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
       </div>
     <div class="fund-value">
-             <h2>Current Fund Value: <%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+             <h2>Current Fund Value: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
 
           </div>
     <hr class="line-divider">
     <div class="message">
-      <h2>Your Fund Conversation</h2>
+      <h1>Your Fund Conversation</h1>
         <%= render "messages/index" %>
     </div>
 </div>
@@ -89,14 +90,15 @@
 
       <div class="composition">
           <div>
-            <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), class:"btn-medium" %></h1>
+            <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
           </div>
 
           <table class="table-coins">
           <thead>
             <tr>
               <th>Coin</th>
-              <th>Price</th>
+              <th>Purchase Price</th>
+              <th>Current Price</th>
               <th>Amount</th>
               <th>Value</th>
             </tr>
@@ -105,19 +107,19 @@
 
             <tr>
               <td><%=fund_item.coin.name%></td>
+              <td>$<%=number_with_precision((fund_item.coin_purchase_price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision((fund_item.coin.price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
-
               <td>
                 <%= link_to edit_fund_fund_item_path(@fund, fund_item), class:"btn" do %>
-                  <i class="fas fa-cog"></i>
+                  <i class="fas fa-cog", id="edit-item"></i>
                 <% end %>
               </td>
 
               <td>
                 <%= link_to fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn" do %>
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times", id="delete-item"></i>
                <% end %>
               </td>
             </tr>
