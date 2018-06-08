@@ -1,13 +1,13 @@
 <!--  <div class="row">
     <div class="col-md-12 container 1">
-      <% @fund.members.each do |member| %>
+      <%# @fund.members.each do |member| %>
         <div class="investor-name">
-          <h2>Name:<%=member.name%></h2>
-          <h2><%= (member.memberships.find_by(fund: @fund).allocation_share / @total_fund_size * 100).round(2) %> %</h2>
+          <h2>Name:<%#=member.name%></h2>
+          <h2><%#= (member.memberships.find_by(fund: @fund).allocation_share / @total_fund_size * 100).round(2) %> %</h2>
         </div>
-        <div><%= link_to "X", fund_membership_path(fund_id: @fund.id, id: @membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></div>
+        <div><%#= link_to "X", fund_membership_path(fund_id: @fund.id, id: @membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></div>
         </div>
-      <% end %>
+      <%# end %>
    </div>
  </div> -->
 
@@ -16,7 +16,7 @@
     <div class="col-md-12 container 1">
       <div class="investor-name">
         <h2>Investor: <%=@membership.user.name%></h2>
-        <h2>Allocation share: <%= ((@membership.allocation_share / @total_fund_size) * 100).round(2) %>%</h2>
+        <h2>Allocation share: <%= @membership.allocation_share_percentage %>%</h2>
       </div>
       <div><%= link_to "X", fund_membership_path(fund_id: @fund.id, id: @membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></div>
       </div>
