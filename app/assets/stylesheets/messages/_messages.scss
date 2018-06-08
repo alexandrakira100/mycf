@@ -16,7 +16,7 @@
   &.right {
     flex-direction: row-reverse;
     .message-content {
-      background-color: #F2F9FC;
+      background-color: #F6F6F6;
     }
   }
 }
@@ -25,6 +25,7 @@
   border-radius: 3px;
   margin: 0 10px;
   padding: 11px 10px 8px 10px;
+
 }
 .avatar-logo {
   width: 42px;
