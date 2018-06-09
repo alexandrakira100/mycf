@@ -6,9 +6,17 @@ class MessagesController < ApplicationController
     @fund = Fund.find(params[:fund_id])
     @message.fund = @fund
     if @message.save
-      redirect_to fund_path(@fund)
+      # redirect_to fund_path(@fund)
+      respond_to do |format|
+        format.html { redirect_to fund_path(@fund) }
+        format.js
+      end
     else
-      render "funds/show"
+      # render "funds/show"
+      respond_to do |format|
+        format.html { render "funds/show"}
+        format.js
+      end
     end
   end
 
