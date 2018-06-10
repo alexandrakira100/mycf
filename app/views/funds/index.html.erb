@@ -1,18 +1,3 @@
-<div class="home-banner">
-
-  <div class="col-xs-12 col-sm-4">
-  </div>
-
-  <div class="col-xs-12 col-sm-4">
-      <%= link_to 'CREATE FUND', new_fund_path, class:"btn "%>
-  </div>
-
-  <div class="col-xs-12 col-sm-4">
-  </div>
-
-
-</div>
-
 
 <div class="header1">
   <h1>WELCOME TO BENCHMARK!</h1>
@@ -22,19 +7,32 @@
   <h1>FIND YOUR ACTIVE FUNDS HERE</h1>
 </div>
 
-<div class="row">
-  <% @funds.each do |fund| %>
-    <div class="col-xs-12 col-sm-12">
-      <%= link_to fund_path(fund.id) do %>
-            <div class="fund-info">
-              <div class="fund-name">
-
-                <h2>    ☻   <%= fund.name%></h2>
-              </div>
-            </div>
-          </div>
+<h1>Funds Which I Manage</h1>
+  <div class="owned-funds">
+    <% if current_user.funds_owned.present? %>
+      <% current_user.funds_owned.each do |fund| %>
+        <%= link_to fund_path(fund.id) do %>
+        <div class="fund-owned">
+          <h2> <%= fund.name%></h2>
         </div>
+        <% end %>
       <% end %>
-    </div>
-  <% end %>
-</div>
+    <% else %>
+      <h2>No owned funds yet.</h2>
+    <% end %>
+  </div>
+<h1>Funds Which I Have Joined</h1>
+  <div class="member-funds">
+    <% if current_user.funds.present? %>
+      <% current_user.funds.each do |fund| %>
+        <%= link_to fund_path(fund.id) do %>
+        <div class="fund-joined">
+          <h2> <%= fund.name%></h2>
+        </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h2>No funds yet.</h2>
+    <% end %>
+  </div>
+
