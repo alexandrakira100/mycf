@@ -89,10 +89,11 @@
       </div>
 
       <div class="composition">
-          <div>
-            <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
-          </div>
-
+          <% if @fund.owner == current_user %>
+            <div>
+              <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
+            </div>
+          <% end %>
           <table class="table-coins">
           <thead>
             <tr>
