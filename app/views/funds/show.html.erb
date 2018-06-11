@@ -8,7 +8,7 @@
         <div class="owned-funds">
          <% if current_user.funds_owned.present? %>
           <% current_user.funds_owned.each do |fund| %>
-            <%= link_to fund_path(fund.id) do %>
+            <%= link_to fund_path(fund.id), class: "fund-owned-link" do %>
               <div class="fund-owned">
                 <h2> <%= fund.name%></h2>
               </div>
@@ -23,10 +23,16 @@
         <div class="member-funds">
          <% if current_user.funds.present? %>
           <% current_user.funds.each do |fund| %>
-            <%= link_to fund_path(fund.id) do %>
-              <div class="fund-name">
-                <h2> <%= fund.name%></h2>
+            <%= link_to fund_path(fund.id), class: "fund-owned-link" do %>
+            <% if @fund.name == fund.name  %>
+              <div class="fund-name active-chat">
+                <h2 id="zach"> <%= fund.name%></h2>
               </div>
+              <% else %>
+              <div class="fund-name">
+                <h2 id="zach"> <%= fund.name%></h2>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
 
@@ -40,10 +46,8 @@
       <div class="fund-members">
         <h1>Fund Members</h1>
         <% @fund.members.each do |member| %>
-           <%= link_to fund_membership_path(@fund, member.id) do %>
-            <ul>
-              <li><%= member.name %></li>
-            </ul>
+           <%= link_to fund_membership_path(@fund, member.id), class: "fund-members-link" do %>
+           <h2><%= member.name %></h2>
           <% end %>
         <% end %>
       </div>
