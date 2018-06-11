@@ -6,7 +6,8 @@ class FundsController < ApplicationController
   end
 
   def show
-    @fund = Fund.find(params[:id])
+    # @fund = Fund.find(params[:id])
+    @fund = Fund.includes(messages: :user).find(params[:id])
     @messages = Message.where(fund: @fund)
     @message = Message.new
     @fund_items = @fund.fund_items

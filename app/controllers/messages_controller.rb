@@ -7,6 +7,9 @@ class MessagesController < ApplicationController
     @message.fund = @fund
     if @message.save
       # redirect_to fund_path(@fund)
+      ActionCable.server.broadcast("fund_#{fund.id}", {
+        message: @message.to_json
+      })
       respond_to do |format|
         format.html { redirect_to fund_path(@fund) }
         format.js
@@ -19,6 +22,8 @@ class MessagesController < ApplicationController
       end
     end
   end
+
+  private
 
   def message_params
     params.require(:message).permit(:content)
