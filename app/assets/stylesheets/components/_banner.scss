@@ -13,16 +13,10 @@
   margin-top: 100px;
   margin-right: 100px;
 }
+
 .button .button-1 {
-  // padding-top: 0px;
-  // padding-bottom: 0px;
-  // padding-left: 0px;
-  // padding-right: 0px;
-  // border-bottom-width: 0px;
-  // border-top-width: 0px;
-  // border-left-width: 0px;
-  // border-right-width: 0px;
   padding: 0px 0px 0px !important;
+
 }
 .button-1 {
   background-color: #79B4A9;
@@ -62,18 +56,21 @@
     }
 }
 
-.btn {
-  color: #999999;
-  border: 1px solid #999999;
+.create-btn {
+  color: orange;
+  border: 1px solid orange;
   padding: 10px 15px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
+  margin-top: 100px;
+  width: 155px;
+  margin-left: 113px;
 }
-.btn:hover {
+.create-btn:hover {
   opacity: 1;
   text-decoration: none;
-  color: #999999;
+  color: orange;
 }
 
 h2 {
