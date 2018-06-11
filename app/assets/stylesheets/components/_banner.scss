@@ -1,8 +1,8 @@
 .home-banner {
-  background-image: asset-url("money-glass.jpg");
+  background-image: asset-url("arms");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 100vh;
   color: #eee;
   text-align: center;
   padding-top: 45vh;
@@ -47,8 +47,9 @@
   top: -300px;
 
   right: 72px;
-  left: auto;
+  left: 100px;
   margin-top: 48px;
+
     h2 {
     font-size: 28px;
     font-family: 'Lato', sans-serif;
@@ -65,7 +66,7 @@
   opacity: 0.6;
   margin-top: 100px;
   width: 155px;
-  margin-left: 113px;
+  margin-left: 155px;
 }
 .create-btn:hover {
   opacity: 1;
@@ -77,6 +78,7 @@ h2 {
   margin-bottom: 40px;
   font-size: 40px;
   text-align: left;
+  color: #CDCED0;
 }
 
 b {

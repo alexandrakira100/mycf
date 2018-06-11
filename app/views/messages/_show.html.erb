@@ -1,7 +1,7 @@
 <div class="message <%= message.from?(current_user) ? "right" : "" %>">
-<%= image_tag message.user.photo.nil? ? "logo.png" : message.user.photo, class: "avatar-logo"%>
+<%= image_tag message.user.photo.nil? ? "avatar.png" : message.user.photo, class: "avatar-logo"%>
   <div class="message-content">
-    <%= message.content %> <%= message.user.name %>
+    <%= message.content %><rt class="rt", style="font-size: 15px;">    -   <%=  message.user.name %></rt>
   </div>
 </div>
 

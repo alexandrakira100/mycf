@@ -31,7 +31,7 @@
           <% if user_signed_in? %>
             <div class="welcome-message", style=" margin-right: 30px; margin-left: 10px; margin-top: 4px;">
               <%=current_user.name%>
-              <%= image_tag current_user.photo.nil? ? "logo.png" : current_user.photo, class: "avatar-logo"%>
+              <%= image_tag current_user.photo.nil? ? "avatar.png" : current_user.photo, class: "avatar-logo"%>
 
             </div>
           <% end %>
