@@ -15,31 +15,26 @@
   <div class="col-xs-12 col-sm-8">
 
         <div class="navbar-wagon-right hidden-xs hidden-sm">
-          <% if user_signed_in? %>
-            <div class="welcome-message">
-              Welcome <%=current_user.name%>
-            </div>
-          <% end %>
 
-          <div >
+          <div style="margin-top: 10px">
             <%= link_to "MY FUNDS", funds_path, class:"navbar-wagon-item navbar-wagon-link" %>
           </div>
 
-          <div >
+          <div style="margin-top: 10px">
             <%= link_to "ABOUT", about_path, class:"navbar-wagon-item navbar-wagon-link" %>
           </div>
 
-          <div >
+          <div style="margin-top: 10px">
             <%= link_to "HELP", help_path, class:"navbar-wagon-item navbar-wagon-link" %>
           </div>
           <% if user_signed_in? %>
-            <div class="welcome-message">
+            <div class="welcome-message", style=" margin-right: 30px; margin-left: 10px; margin-top: 4px;">
               <%=current_user.name%>
               <%= image_tag current_user.photo.nil? ? "logo.png" : current_user.photo, class: "avatar-logo"%>
 
             </div>
           <% end %>
-          <div >
+          <div style=" margin-top: 9px;" >
             <% if user_signed_in? %>
               <div>
                 <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"login-btn"  %>
