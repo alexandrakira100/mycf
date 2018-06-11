@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       }
   root to: 'pages#home'
 
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :funds do
     resources :fund_items, only: [:new, :create, :edit, :update, :destroy]

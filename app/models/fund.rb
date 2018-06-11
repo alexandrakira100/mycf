@@ -29,7 +29,10 @@ class Fund < ApplicationRecord
   end
 
   def profit_margin
-    (((self.total_fund_value - self.total_purchase_value)/(self.total_purchase_value))*100).round(2)
+    if total_purchase_value > 0
+      (((self.total_fund_value - self.total_purchase_value)/(self.total_purchase_value))*100).round(2)
+    else 0
+    end
   end
 
   def profitable?
