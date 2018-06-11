@@ -32,6 +32,34 @@ text-align: left;
 font-size: 19px;
 }
 
+.fund-members-additional-info {
+  color: #DFE6EA;
+  text-align: right;
+  float: right;
+  justify-content: space-between;
+}
+
+
+.fund-members-additional-info:hover {
+  color: black;
+  text-align: right;
+  float: right;
+  justify-content: space-between;
+}
+
+.fund-members-delete {
+  color: #DFE6EA;
+  margin-left: 18px;
+
+}
+
+
+.fund-members-delete:hover {
+  color: black;
+  margin-left: 18px;
+}
+
+
 .fund-members-link {
 font-size: 23px;
 color:  #9C9C9C;
