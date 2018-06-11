@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 
 <div class="header1">
   <h1>WELCOME TO BENCHMARK!</h1>
@@ -18,7 +19,12 @@
         <% end %>
       <% end %>
     <% else %>
-      <h2>No owned funds yet.</h2>
+     <span class="fund-create"> <h2>No owned funds yet.</h2></span>
+    <div class="center-btn">
+        <div class="create-btn-new">
+        <%= link_to 'CREATE FUND', new_fund_path%>
+    </div>
+    </div>
     <% end %>
   </div>
 <h1>Funds Which I Have Joined</h1>
