@@ -17,7 +17,7 @@
         <div class="navbar-wagon-right hidden-xs hidden-sm">
           <% if user_signed_in? %>
             <div class="welcome-message">
-              Welcome, <%=current_user.name%>
+              Welcome <%=current_user.name%>
             </div>
           <% end %>
           <div >
@@ -35,11 +35,11 @@
           <div >
             <% if user_signed_in? %>
               <div>
-                <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"btn"  %>
+                <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"login-btn"  %>
               </div>
             <% else %>
               <div>
-                <%= link_to 'LOGIN', new_user_session_path, class:"btn"   %>
+                <%= link_to 'LOGIN', new_user_session_path, class:"login-btn"   %>
               </div>
             <% end %>
           </div>
