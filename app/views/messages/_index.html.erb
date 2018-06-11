@@ -3,7 +3,7 @@
     <div class="message">
       <ul class="messages-all list-unstyled">
         <% @messages.each do |message| %>
-          <li><%= render "messages/show", message: message %></li>
+          <li><%= render "messages/show", message: message, user_is_messages_author: message.user == current_user %></li>
         <% end %>
       </ul>
     </div>
@@ -12,9 +12,13 @@
 </div>
 <%= content_for :after_js do %>
   <script>
-    App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create({ channel: 'FundsChannel', fund_id: <%= @fund.id %>}, {
-      recieved: (data) => {
+    console.log('hello!')
+    App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create(
+      { channel: 'FundsChannel', fund_id: <%= @fund.id %>},
+      { received: (data) => {
         console.log(data);
+        var messageContainer = document.querySelector('.messages-all');
+        messageContainer.insertAdjacentHTML('beforeend', data.message_partial);
       }
     })
   </script>

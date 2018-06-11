@@ -7,7 +7,7 @@
   // handle validation errors later
 <% else %>
   var messagesContainer = document.querySelector('.messages-all');
-  messagesContainer.insertAdjacentHTML('beforeend', '<%= j render "messages/show", message: @new_message %>')
+  messagesContainer.insertAdjacentHTML('beforeend', '<%= j render "messages/show", message: @new_message, user_is_messages_author: true %>')
   var input = document.querySelector('#message_content');
   input.value = '';
   input.blur();
