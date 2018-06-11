@@ -1,6 +1,6 @@
-<div id="create-message">
+<div id="create-message", style="background-color: #DBDBDB;">
   <%= simple_form_for [@fund, @message] do |f| %>
     <%= f.input :content, label: false %>
-    <%= f.submit "send", id:"send-message", class: "btn btn-primary"  %>
+    <%= f.submit "Send", id:"send-message", class: "btn-add" , style:"margin-top: 15px;" %>
   <% end %>
 </div>
