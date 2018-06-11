@@ -173,9 +173,32 @@ color: #79B4A9;
   text-align: center;
 }
 
+.col-md-5 .container2 {
+  text-align: stretch;
+}
 
 
+.btn-add {
+  color: #79B4A9;
+  border: 1px solid #79B4A9;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
 
+.btn-add:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #79B4A9;
+}
 
+h1 {
+font-weight: heavy;
+}
 
+#create-message {
+  background-color: #DBDBDB;
+  background-border: #DBDBDB;
+}
 

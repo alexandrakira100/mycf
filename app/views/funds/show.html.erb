@@ -50,14 +50,14 @@
 
         <% if @fund.owner == current_user %>
             <%= link_to new_fund_membership_path(@fund) do%> <br>
-              <button type="button", id="add-investor", class="btn btn-primary">add</button>
+              <button type="button", id="add-investor", class="btn-add " style="margin-left: 25px;"> ADD MEMBER</button>
             <% end %>
           <% end %>
     </div>
 
 
 
-<div class="col-md-5 container2">
+<div class="col-md-5 container2" style="background-color: #dbdbdb;height: 100vh; font-weight: 500;">
 
     <div class="fund-name">
         <h1><%=@fund.name%></h1>
@@ -74,7 +74,7 @@
           </div>
     <hr class="line-divider">
     <div class="message">
-      <h1>Your Fund Conversation</h1>
+      <h1 style="font-weight: 500;">Your Fund Conversation</h1>
         <%= render "messages/index" %>
     </div>
 </div>
