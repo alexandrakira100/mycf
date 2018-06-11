@@ -12,7 +12,6 @@
 </div>
 <%= content_for :after_js do %>
   <script>
-    console.log('hello!')
     App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create(
       { channel: 'FundsChannel', fund_id: <%= @fund.id %>},
       { received: (data) => {
@@ -20,6 +19,7 @@
           console.log(data);
           var messageContainer = document.querySelector('.messages-all');
           messageContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
         }
       }
     })
