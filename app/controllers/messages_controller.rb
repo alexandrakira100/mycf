@@ -8,12 +8,12 @@ class MessagesController < ApplicationController
     @new_message.fund = @fund
 
     if @new_message.save!
-      # redirect_to fund_path(@fund)
-      ActionCable.server.broadcast("fund_#{@fund.id}", {
-        message_partial: render(partial: "messages/show", locals: { message: @new_message })
-        # message: @message.to_json
-      })
-      # @message = Message.new(user: current_user)
+      # # redirect_to fund_path(@fund)
+      # ActionCable.server.broadcast("fund_#{@fund.id}", {
+      #   message_partial: render(partial: "messages/show", locals: { message: @new_message, user_is_messages_author: false })
+      #   # message: @message.to_json
+      # })
+      @message = Message.new(user: current_user)
       respond_to do |format|
         format.html { redirect_to fund_path(@fund) }
         format.js

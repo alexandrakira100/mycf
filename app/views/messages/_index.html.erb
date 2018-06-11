@@ -16,9 +16,11 @@
     App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create(
       { channel: 'FundsChannel', fund_id: <%= @fund.id %>},
       { received: (data) => {
-        console.log(data);
-        var messageContainer = document.querySelector('.messages-all');
-        messageContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        if (data.current_user_id !== <%= current_user.id %>) {
+          console.log(data);
+          var messageContainer = document.querySelector('.messages-all');
+          messageContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        }
       }
     })
   </script>
