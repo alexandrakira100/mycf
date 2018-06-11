@@ -15,3 +15,8 @@ initUpdateNavbarOnScroll();
 
 // console.log(data)
 
+      const active = document.getElementById('zach');
+      active.addEventListener("click", (event) => {
+        console.log(event);
+        active.classList.add("active-chat");
+      });
