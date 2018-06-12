@@ -1,0 +1,6 @@
+<% cvs = CoinValue.where(coin: Coin.first) %>
+<%  chart = {} %>
+<%  cvs.each {|cv| chart[cv.created_at] = (cv.historical_price)/100 } %>
+<%= line_chart chart, min: 6500, max: 7000, thousands: ",", prefix: "$", width: "550px", height: "320px" %>
+
+

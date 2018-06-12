@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_034119) do
+ActiveRecord::Schema.define(version: 2018_06_11_073658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coin_values", force: :cascade do |t|
+    t.integer "historical_price"
+    t.bigint "coin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_coin_values_on_coin_id"
+  end
 
   create_table "coins", force: :cascade do |t|
     t.integer "price_in_cents"
@@ -31,6 +39,14 @@ ActiveRecord::Schema.define(version: 2018_06_11_034119) do
     t.datetime "updated_at", null: false
     t.index ["coin_id"], name: "index_fund_items_on_coin_id"
     t.index ["fund_id"], name: "index_fund_items_on_fund_id"
+  end
+
+  create_table "fund_values", force: :cascade do |t|
+    t.bigint "fund_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "value"
+    t.index ["fund_id"], name: "index_fund_values_on_fund_id"
   end
 
   create_table "funds", force: :cascade do |t|
@@ -84,8 +100,10 @@ ActiveRecord::Schema.define(version: 2018_06_11_034119) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "coin_values", "coins"
   add_foreign_key "fund_items", "coins"
   add_foreign_key "fund_items", "funds"
+  add_foreign_key "fund_values", "funds"
   add_foreign_key "memberships", "funds"
   add_foreign_key "memberships", "users"
   add_foreign_key "messages", "funds"

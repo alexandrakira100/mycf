@@ -1,4 +1,9 @@
 class CoinsController < ApplicationController
+
+  def all
+    @coins = Coin.all
+  end
+
   def create
     @coin = Coin.new(coin_params)
     if @coin.save
