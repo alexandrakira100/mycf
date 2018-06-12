@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get "help", to: "pages#help"
   get "search", to: "pages#search"
 
-  end
+  mount ActionCable.server => "/cable"
+
+end
 
 
 
