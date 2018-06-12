@@ -1,4 +1,4 @@
-<div id="create-message" , style="background-color: #DBDBDB;">
+<div id="create-message" , style="background-color: #EBEBEB;">
   <%= simple_form_for [@fund, @message], remote: true do |f| %>
     <%= f.input :content, label: false %>
     <%= f.submit "Send", id:"send-message", class: "btn-add" , style:"margin-top: 15px;" %>
