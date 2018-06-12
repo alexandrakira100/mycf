@@ -20,11 +20,13 @@ Chartkick.addAdapter(Chart);
 
 // console.log(data)
 
-      const active = document.getElementById('zach');
-      active.addEventListener("click", (event) => {
-        console.log(event);
-        active.classList.add("active-chat");
-      });
+const active = document.getElementById('zach');
+if (active) {
+  active.addEventListener("click", (event) => {
+    console.log(event);
+    active.classList.add("active-chat");
+  });
+}
 
 function scrollLastMessageIntoView() {
   const messages = document.querySelectorAll('.message');
