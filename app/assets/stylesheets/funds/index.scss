@@ -12,6 +12,10 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
+.fund-joined:hover h2{
+color: black;
+}
+
 .create-btn-new {
   color: orange;
   display: flex;
@@ -38,9 +42,18 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
+.fund-own:hover h2{
+  color: black;
+}
+
 .owned-funds h2{
   justify-content: center;
   text-align: center;
   font-weight: lighter;
   font-family: "Raleway", "Helvetica", "sans-serif";
+}
+
+
+a:-webkit-any-link{
+  text-decoration: none;
 }
