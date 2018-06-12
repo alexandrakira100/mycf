@@ -3,8 +3,8 @@
   // flex-basis: auto;
   // justify-content: space-evenly;
   // margin-top:150px !important;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  margin-top: 0px;
+  // margin-bottom: 150px;
   font-family: "Raleway", "Helvetica", "sans-serif";
   font-weight: lighter;
 
@@ -115,6 +115,7 @@ p {
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
+  margin-bottom: 30px
 }
 
 /* Body design */
