@@ -12,6 +12,10 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
+.fund-joined:hover h2{
+color: black;
+}
+
 .create-btn-new {
   color: orange;
   display: flex;
@@ -42,6 +46,7 @@
   color: black;
 }
 
+
 .fund-joined:hover h2{
   color: black;
 }
@@ -53,6 +58,6 @@
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
-a:-webkit-any-link {
+a:-webkit-any-link{
   text-decoration: none;
 }
