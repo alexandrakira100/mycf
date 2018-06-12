@@ -1,12 +1,12 @@
 .home-banner {
-  background-image: asset-url("money-glass.jpg");
+  background-image: asset-url("walls.png");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 100vh;
   color: #eee;
   text-align: center;
-  padding-top: 45vh;
   margin-top: 80px;
+  opacity: 0.65;
 }
 
 .button{
@@ -36,24 +36,25 @@
 
 .description-2 {
   position: absolute;
-  left: 100px;
-  top: -90px;
   text-align: left;
 }
 
-.description-1 {
-  position: absolute;
-  left: 100px;
-  top: -300px;
-
-  right: 72px;
+.description-1 h1{
   left: auto;
-  margin-top: 48px;
-    h2 {
-    font-size: 28px;
-    font-family: 'Lato', sans-serif;
-    color: #777777;
-    }
+  right: auto;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  color: black;
+  margin-top: 225px;
+}
+
+
+.description-1 h2{
+  left: auto;
+  right: auto;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  color: black;
+  margin-top: 5px;
+  text-align: center;
 }
 
 .create-btn {
@@ -63,9 +64,9 @@
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  margin-top: 100px;
+  margin-top: 60px;
   width: 155px;
-  margin-left: 113px;
+  margin-left: 155px;
 }
 .create-btn:hover {
   opacity: 1;
@@ -77,6 +78,7 @@ h2 {
   margin-bottom: 40px;
   font-size: 40px;
   text-align: left;
+  color: #CDCED0;
 }
 
 b {

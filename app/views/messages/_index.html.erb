@@ -1,13 +1,29 @@
  <div class="row">
-    <div class="col-sm-12">
-      <div class="message">
-        <ul class="messages-all list-unstyled">
-          <% @messages.each do |message| %>
-            <li><%= render "messages/show", message: message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <%= render "messages/form", message: @message %>
+  <div class="col-sm-12">
+    <div class="message">
+      <ul class="messages-all list-unstyled">
+        <% @messages.each do |message| %>
+          <li><%= render "messages/show", message: message, user_is_messages_author: message.user == current_user %></li>
+        <% end %>
+      </ul>
     </div>
+    <%= render "messages/form" %>
   </div>
+</div>
+<%= content_for :after_js do %>
+  <script>
+    App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create(
+      { channel: 'FundsChannel', fund_id: <%= @fund.id %>},
+      { received: (data) => {
+        if (data.current_user_id !== <%= current_user.id %>) {
+          console.log(data);
+          var messageContainer = document.querySelector('.messages-all');
+          messageContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
+        }
+      }
+    })
+  </script>
+<% end %>
+
 
