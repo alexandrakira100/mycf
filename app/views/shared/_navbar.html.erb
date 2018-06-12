@@ -30,18 +30,21 @@
             <%= link_to "HELP", help_path, class:"navbar-wagon-item navbar-wagon-link" %>
           </div>
           <% if user_signed_in? %>
+
+             <div class="dropdown">
             <div class="welcome-message", style=" margin-right: 30px; margin-left: 10px; margin-top: 4px;">
-              <%=current_user.name%>
-              <%= image_tag current_user.photo.nil? ? "avatar.png" : current_user.photo, class: "avatar-logo"%>
+              <button class="user-name"><%=current_user.name%>
+              <%= image_tag current_user.photo.nil? ? "avatar.png" : current_user.photo, class: "avatar-logo"%></button>
+               <div class="dropdown-content">
+                 <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"login-btn" %>
+                </div>
+                </div>
 
             </div>
           <% end %>
 
           <div style=" margin-top: 9px;" >
             <% if user_signed_in? %>
-              <div>
-                <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"login-btn"  %>
-              </div>
             <% else %>
               <div>
                 <%= link_to 'LOGIN', new_user_session_path, class:"login-btn"   %>
