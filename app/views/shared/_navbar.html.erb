@@ -32,11 +32,13 @@
           <% if user_signed_in? %>
 
              <div class="dropdown">
-            <div class="welcome-message", style=" margin-right: 30px; margin-left: 10px; margin-top: 4px;">
-              <button class="user-name"><%=current_user.name%>
+            <div class="welcome-message", style=" margin-right: 30px; margin-left: 10px;">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=current_user.name%>
               <%= image_tag current_user.photo.nil? ? "avatar.png" : current_user.photo, class: "avatar-logo"%></button>
-               <div class="dropdown-content">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                 <div class="dropdown-item">
                  <%= link_to 'LOGOUT', destroy_user_session_path, method: :delete, class:"login-btn" %>
+                </div>
                 </div>
                 </div>
 

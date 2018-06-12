@@ -1,7 +1,25 @@
 /* Main navbar */
-.user-name {
-  background-color: #FFFFFF;
-  border-color: #FFFFFF;
+
+#dropdownMenuButton {
+  padding-top: 2px;
+  color: #FFA000;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+}
+
+#dropdownMenuButton:hover {
+  padding-top: 2px;
+  color: #e59000;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+}
+
+.dropdown-item {
+  color: black;
+  border: 1px gray;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  font-family: "Open Sans", "Helvetica", "sans-serif";
 }
 
 .dropdown-content {
@@ -120,21 +138,6 @@ p {
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-}
-
-.login-btn {
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
-  padding: 10px 15px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-}
-
-.login-btn:hover {
-  opacity: 1;
-  text-decoration: none;
-  color: #F4F4F4;
 }
 
 .welcome-message {
