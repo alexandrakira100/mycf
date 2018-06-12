@@ -3,12 +3,12 @@
     <%= simple_form_for @fund do |f| %>
       <fieldset>
 
-        <h2>Name of fund</h2>
+        <h2>Name of Fund</h2>
         <div class="form-group">
           <%= f.input :name, label: false%>
         </div>
 
-        <h2>Fund managers allocation amount (USD)</h2>
+        <h2>My Invested Amount (USD)</h2>
         <div class="form-group">
           <%= text_field_tag(:allocation_share)%>
         </div>
