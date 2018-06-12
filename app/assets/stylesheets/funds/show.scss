@@ -25,11 +25,9 @@ margin-bottom: 10px;
 }
 
 .fund-members h2 {
-font-size: 23px;
-color:  #9C9C9C;
-font-family: "Raleway", "Helvetica", "sans-serif";
-text-align: left;
-font-size: 19px;
+  text-align: left !important ;
+  font-size: 18px;
+  padding-left: 20px;
 }
 
 .fund-members-additional-info {
@@ -220,7 +218,9 @@ color: #79B4A9;
 }
 
 .fund-owned h2{
-  text-align: left;
+  text-align: left !important ;
+  font-size: 18px;
+  padding-left: 20px
 }
 
 .fund-owned:hover h2{
@@ -279,6 +279,5 @@ font-weight: bolder;
 .message {
   font-size: 15px;
 }
-
 
 
