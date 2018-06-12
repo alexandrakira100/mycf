@@ -1,6 +1,7 @@
-<% cvs = CoinValue.where(coin: Coin.first) %>
-<%  chart = {} %>
-<%  cvs.each {|cv| chart[cv.created_at] = (cv.historical_price)/100 } %>
-<%= line_chart chart, min: 6500, max: 7000, thousands: ",", prefix: "$", width: "550px", height: "320px" %>
+<%  chart = {}  %>
+<%  (0..6).to_a.each do |number| %>
+<% chart[Date.today - number.days]  = (@fund.fund_historical_value(number) / 100) %>
+<% end %>
+<%= line_chart chart, thousands: ",", prefix: "$", width: "550px", height: "320px" %>
 
 

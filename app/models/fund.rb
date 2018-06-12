@@ -18,6 +18,24 @@ class Fund < ApplicationRecord
     sum.round(2)
   end
 
+
+
+
+  def fund_historical_value(number_of_days)
+    time = number_of_days.days.ago
+    fund_value_number_of_days_ago = 0
+    fund_items.each do |fund_item|
+      historical_coin_value = fund_item.coin.coin_values.where("created_at >= ?", time).order("created_at DESC").last
+      if historical_coin_value.nil?
+        historical_coin_value = fund_item.coin.coin_values.where("created_at >= ?", time - 1.day).order("created_at DESC").first
+      end
+      fund_value_number_of_days_ago += historical_coin_value.historical_price * fund_item.quantity
+    end
+    return fund_value_number_of_days_ago
+  end
+
+
+
   def total_purchase_value
     sum = 0
 

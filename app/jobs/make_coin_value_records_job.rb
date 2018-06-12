@@ -9,3 +9,6 @@ class MakeCoinValueRecordsJob < ApplicationJob
   end
 end
 
+
+
+
