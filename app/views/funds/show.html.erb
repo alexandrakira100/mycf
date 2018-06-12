@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-2 container1">
       <div class="sidebar">
-        <h1>Fund Owner</h1>
+        <h1 style="font-weight: 500;">Fund Owner</h1>
         <div class="owned-funds">
          <% if current_user.funds_owned.present? %>
           <% current_user.funds_owned.each do |fund| %>
@@ -19,17 +19,17 @@
         <% end %>
        </div>
 
-         <h1>Fund Investor</h1>
-        <div class="member-funds">
+         <h1 style="font-weight: 500;">Fund Investor</h1>
+        <div class="owned-funds">
          <% if current_user.funds.present? %>
           <% current_user.funds.each do |fund| %>
             <%= link_to fund_path(fund.id), class: "fund-owned-link" do %>
             <% if @fund.name == fund.name  %>
-              <div class="fund-name active-chat">
+              <div class="fund-owned active-chat">
                 <h2 id="zach"> <%= fund.name%></h2>
               </div>
               <% else %>
-              <div class="fund-name">
+              <div class="fund-owned">
                 <h2 id="zach"> <%= fund.name%></h2>
               </div>
             <% end %>
@@ -44,7 +44,7 @@
       <br>
 
       <div class="fund-members">
-        <h1>Fund Members</h1>
+        <h1 style="font-weight: 500;">Fund Members</h1>
         <% @fund.memberships.each do |membership| %>
            <h2>
             <%=membership.user.name%>
@@ -67,7 +67,7 @@
 <div class="col-md-5 container2" style="background-color: #EBEBEB;height: 100vh; font-weight: 500;">
 
     <div class="fund-name">
-        <h1><%=@fund.name%></h1>
+        <h1 style="font-weight: 500;"><%=@fund.name%></h1>
       </div>
          <div class="fund-name">
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
@@ -91,7 +91,7 @@
 
       <div class="fund_performance">
         <div class="market">
-          <h1>Market Performance</h1>
+          <h1 style="font-weight: 500;">Market Performance</h1>
           <%= render "chart" %>
 
 
@@ -101,7 +101,7 @@
       <div class="composition">
           <% if @fund.owner == current_user %>
             <div>
-              <h1>Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
+              <h1 style="font-weight: 500;">Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
             </div>
           <% end %>
           <table class="table-coins">
