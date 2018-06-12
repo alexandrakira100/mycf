@@ -46,13 +46,17 @@ color: black;
   color: black;
 }
 
+
+.fund-joined:hover h2{
+  color: black;
+}
+
 .owned-funds h2{
   justify-content: center;
   text-align: center;
   font-weight: lighter;
   font-family: "Raleway", "Helvetica", "sans-serif";
 }
-
 
 a:-webkit-any-link{
   text-decoration: none;
