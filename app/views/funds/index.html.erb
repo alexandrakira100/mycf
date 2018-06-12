@@ -13,7 +13,7 @@
     <% if current_user.funds_owned.present? %>
       <% current_user.funds_owned.each do |fund| %>
         <%= link_to fund_path(fund.id) do %>
-        <div class="fund-owned">
+        <div class="fund-own">
           <h2> <%= fund.name%></h2>
         </div>
         <% end %>
