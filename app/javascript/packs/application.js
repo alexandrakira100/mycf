@@ -34,3 +34,5 @@ function scrollLastMessageIntoView() {
     lastMessage.scrollIntoView({});
   // }
 }
+
+window.scrollLastMessageIntoView = scrollLastMessageIntoView;
