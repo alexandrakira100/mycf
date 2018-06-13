@@ -32,16 +32,15 @@
       <div class="fund-members">
         <h1 style="font-weight: 500;">Fund Members</h1>
         <% @fund.memberships.each do |membership| %>
-           <h2>
-            <%=membership.user.name%>
-             <% if @fund.owner == current_user %>
-            <span class="fund-members-additional-info">
-           <%= link_to "X", fund_membership_path(fund_id: @fund.id, id: membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium"%>
-           </span>
-
-           <span class="fund-members-delete"><%= membership.allocation_share_percentage%>%</span>
-           </h2>
-        <% end %>
+          <h2>
+            <%= membership.user.name %>
+            <% if @fund.owner == current_user && membership.user != current_user %>
+              <span class="fund-members-additional-info">
+                <%= link_to "X", fund_membership_path(fund_id: @fund.id, id: membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium"%>
+              </span>
+            <% end %>
+            <span class="fund-members-delete"><%= membership.allocation_share_percentage%>%</span>
+          </h2>
         <% end %>
       </div>
 
