@@ -1,19 +1,50 @@
-<h1 style="font-family: "Open Sans", "Helvetica", "sans-serif"; font-size: 18px; line-height: 1.5;">Welcome to BenchMark, <%= @user.name %>!</h1>
+<style>
+  h1 {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight:lighter;
+
+}
+
+p{
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight:lighter;
+}
+
+h3{
+  font-family: "Open Sans", "Helvetica", "sans-serif";
+  font-size: 18px;
+  font-weight:lighter;
+  line-height: 1.5;
+}
+
+</style>
+
+<h1>Welcome to <b style="color: #62B8AB;">B</b>ench<m style="color: orange;"">M</m>ark, <%= @user.name %>!</h1>
 
 <p></p>
 
-<p>Please confirm your email account using the link below:</p>
+<p> Please confirm your email account using the link below:</p>
 
-<p>Your password is <%= @user.password %>  </p>
-<p>You need this password when you are log in.</p>
+<p> Your password is <%= @user.password %>  </p>
+<p> You need this password to log in.</p>
 
-<p><%= link_to 'Your BenchMark exprience starts here!', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p> <%= link_to 'Your BenchMark exprience starts here!', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p></p>
+<br>
+<br>
 
-<h1>Kind Regards</h1>
-<h6>Team BenchMark</h6>
 
-<p>BenchMark.co.ltd</p>
-<p>Meguro, Tokyo</p>
+<h3> Kind Regards,</h3>
+<h3> Team BenchMark</h3>
+<img src="http://www.benchmark-crypto.bid/assets/benchmark-official-3d7105f8504c080778ab7afd89dca14df607c46b2bc6cafcebfe05bfdef7afa2.jpg" style="height: 8vh;">
 
