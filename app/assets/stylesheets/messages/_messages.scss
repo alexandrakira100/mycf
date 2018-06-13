@@ -12,6 +12,7 @@
 
 .message {
   display: flex;
+  flex-direction: row;
   margin-bottom: 10px;
   &.right {
     flex-direction: row-reverse;

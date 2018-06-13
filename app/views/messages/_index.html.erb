@@ -1,15 +1,14 @@
- <div class="row">
+<div class="row">
   <div class="col-sm-12">
-    <div class="message">
-      <ul class="messages-all list-unstyled">
-        <% @messages.each do |message| %>
-          <li><%= render "messages/show", message: message, user_is_messages_author: message.user == current_user %></li>
-        <% end %>
-      </ul>
+    <div class="messages-all">
+      <% @messages.each do |message| %>
+        <%= render "messages/show", message: message, user_is_messages_author: message.user == current_user %>
+      <% end %>
     </div>
     <%= render "messages/form" %>
   </div>
 </div>
+
 <%= content_for :after_js do %>
   <script>
     App['fund_<%= @fund.id %>'] = App.cable.subscriptions.create(
