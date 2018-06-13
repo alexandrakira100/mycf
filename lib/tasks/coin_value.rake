@@ -6,7 +6,7 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 1000
+          historical_price: coin.coin_values.first.historical_price - 60000
         )
         unless cv.save
           cv.historical_price - 1
@@ -16,7 +16,7 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 2000
+          historical_price: coin.coin_values.first.historical_price - 50000
         )
         unless cv.save
           cv.historical_price - 2
@@ -26,7 +26,7 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 3000
+          historical_price: coin.coin_values.first.historical_price - 30000
         )
         unless cv.save
           cv.historical_price - 3
@@ -37,7 +37,7 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 4000
+          historical_price: coin.coin_values.first.historical_price - 40000
         )
         unless cv.save
           cv.historical_price - 4
