@@ -97,7 +97,7 @@
 
       <div class="fund_performance">
         <div class="market">
-          <h1 style="font-weight: 500;">Market Performance</h1>
+          <h1 style="font-weight: 500;">Fund Performance</h1>
           <%= render "chart" %>
 
 
@@ -142,7 +142,6 @@
             </tr>
           <% end %>
         </table>
-        <%= pie_chart @fund.coins.group(:name).count %>
         </div>
       </div>
     </div>

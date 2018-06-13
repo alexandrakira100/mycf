@@ -10,5 +10,9 @@
   <div class="form-group" id="quantity">
     <%= f.input :quantity, html: {id: :quantity} %>
   </div>
+  <div class="result" style="margin-bottom: 10px;">
+    <h2 style="display: inline;">Total Amount: </h2>
+    <h2 style="display: inline;" id="total-amount"></h2>
+  </div>
   <%= f.submit "ADD", class: "btn btn-primary" %>
 <% end %>
