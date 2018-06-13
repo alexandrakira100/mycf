@@ -25,6 +25,7 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'clockwork', require: false
 gem "chartkick"
 gem 'groupdate'
+gem 'money-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -115,13 +115,14 @@
               </td>
 
               <td>
-                <%= link_to fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete your account?" }, method: :delete, class:"btn" do %>
+                <%= link_to fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete this item?" }, method: :delete, class:"btn" do %>
                 <i class="fas fa-times", id="delete-item"></i>
                <% end %>
               </td>
             </tr>
           <% end %>
         </table>
+        <%= pie_chart @fund.coins.group(:name).count %>
       </div>
 
     </div>

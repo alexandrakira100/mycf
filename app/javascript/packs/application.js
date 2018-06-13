@@ -38,3 +38,17 @@ function scrollLastMessageIntoView() {
 }
 
 window.scrollLastMessageIntoView = scrollLastMessageIntoView;
+
+   const purchasePrice = document.getElementById('fund_item_coin_purchase_price');
+    const quantity = document.getElementById('fund_item_quantity');
+    const result = document.getElementById("total-amount");
+
+    purchasePrice.addEventListener("keyup", function(){
+      result.innerHTML = purchasePrice.value * quantity.value;
+    });
+
+    quantity.addEventListener("keyup", function(){
+      result.innerHTML = purchasePrice.value * quantity.value;
+    });
+
+
