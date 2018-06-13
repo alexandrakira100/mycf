@@ -13,9 +13,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <%= javascript_pack_tag 'chartkick' %>
+    <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-
-    <%= yield %>
+    <%= yield(:after_js) %>
   </body>
 </html>
