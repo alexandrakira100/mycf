@@ -26,8 +26,13 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    @membership.destroy
-    redirect_to fund_path(params[:fund_id])
+    if @membership.user == current_user
+      flash[:alert] = "You can not delete your own account."
+      redirect_to fund_path(params[:fund_id])
+    else
+      @membership.destroy
+      redirect_to fund_path(params[:fund_id])
+    end
   end
 
   private
