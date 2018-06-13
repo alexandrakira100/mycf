@@ -87,7 +87,7 @@
 
           </div>
     <hr class="line-divider">
-    <div>
+    <div class="message-part">
       <h1 style="font-weight: 500;">Your Fund Conversation</h1>
         <%= render "messages/index" %>
     </div>
@@ -110,7 +110,7 @@
               <h1 style="font-weight: 500;">Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
             </div>
           <% end %>
-          <table class="table-coins">
+          <table class="table-coins table">
           <thead>
             <tr>
               <th>Coin</th>

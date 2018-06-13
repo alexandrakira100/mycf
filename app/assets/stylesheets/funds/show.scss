@@ -87,6 +87,10 @@ margin-top: 20px;
 margin-bottom: 10px;
 }
 
+.btn {
+  padding: 0px;
+}
+
 .container1 {
 padding-left: 20px;
 background-color: #F7F9FA;
@@ -148,6 +152,7 @@ th {
 color: gray;
 font-weight: lighter;
 font-size: 15px;
+border-bottom: none !important;
 }
 
 .market img{
@@ -205,6 +210,7 @@ margin-bottom: 10px;
   padding-left: 8px;
   padding-top: 3px;
   padding-bottom: 3px;
+  border-top: none !important;
 }
 
 .row {
@@ -295,6 +301,13 @@ color: #79B4A9;
   font-size: 15px;
 }
 
+.message-part h1{
+  font-size: 23px;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #62B8AB;
+}
 
 .fund-name-and-button {
   display: flex;
@@ -302,7 +315,8 @@ color: #79B4A9;
 
 #dropdownButton {
   margin-top: 13px;
-  background-color: #EBEBEB;
+  background-color: #F6F6F6;
+  padding: 7px;
 }
 
 .dropdown-menu {
