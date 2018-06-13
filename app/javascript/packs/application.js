@@ -6,12 +6,6 @@ import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
-import Chartkick from "chartkick";
-window.Chartkick = Chartkick;
-
-import Chart from "chart.js";
-Chartkick.addAdapter(Chart);
-
 // url = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD'
 // crypto_initial = open(url).read
 // crypto = JSON.parse(crypto_initial)

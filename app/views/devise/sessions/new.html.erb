@@ -1,15 +1,42 @@
-<h2>Log in</h2>
+<div class="form-style-5">
+  <h1>Log in</h1>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+      <fieldset>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+      <!-- <div class="form-inputs"> -->
+        <div class="form-group">
+        <%= f.input :email, required: false, autofocus: true %>
+        </div>
 
-<%= render "devise/shared/links" %>
+
+        <div class="form-group">
+        <%= f.input :password, required: false %>
+        </div>
+
+        <div class="form-group" style="margin-left:10px; margin-right: 20px;" >
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+      <!-- </div> -->
+
+        <div class="form-actions" style="margin-bottom: 35px;">
+          <input type="submit" name="commit" value="Log in" class="rnd-btn" data-disable-with="Log in" style="
+            color: #62B8AB;
+            border: 1px solid #62B8AB;
+            padding: 5px 19px;
+            border-radius: 50px;
+            font-weight: lighter;
+            opacity: 0.6;
+            font-size: 20px;">
+        </div>
+          <% end %>
+        <div>
+
+        </div>
+
+        <div class="options" style="height:120vh; line-height: 200%;">
+          <%= render "devise/shared/links" %>
+        </div>
+      </fieldset>
+</div>
+

@@ -1,8 +1,23 @@
 // Specific CSS for your home-page
-.description-1 {
+.description-1 h1{
   font-weight: bold;
+  font-size: 27px;
 }
 
-.create-btn {
+.description-1 h2{
+  font-size: 25px;
+}
+
+
+.create-btn-home {
   font-weight: bold;
+  color: #0D203B;
+  border: 3px solid orange;
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin-top: 60px;
+  width: 195px;
+  font-size: 18px;
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  margin-top: 10px;
 }

@@ -32,12 +32,15 @@
       <div class="fund-members">
         <h1 style="font-weight: 500;">Fund Members</h1>
         <% @fund.memberships.each do |membership| %>
-           <h2>
-            <%=membership.user.name%>
-            <span class="fund-members-additional-info">
-           <%= link_to "X", fund_membership_path(fund_id: @fund.id, id: membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium" %></span>
-           <span class="fund-members-delete"><%= membership.allocation_share_percentage%>%</span>
-           </h2>
+          <h2>
+            <%= membership.user.name %>
+            <% if @fund.owner == current_user && membership.user != current_user %>
+              <span class="fund-members-additional-info">
+                <%= link_to "X", fund_membership_path(fund_id: @fund.id, id: membership.id), data:{ confirm: "Are you sure you want to delete this investor?" }, method: :delete, class:"btn-medium"%>
+              </span>
+            <% end %>
+            <span class="fund-members-delete"><%= membership.allocation_share_percentage%>%</span>
+          </h2>
         <% end %>
       </div>
 
@@ -50,14 +53,30 @@
 
 
 
-<div class="col-md-5 container2" style="background-color: #EBEBEB;height: 100vh; font-weight: 500;">
+<div class="col-md-5 container2">
 
-    <div class="fund-name">
+    <div class="fund-name-and-button">
+      <div class="fund-name">
         <h1 style="font-weight: 500;"><%=@fund.name%></h1>
       </div>
+      <% if @fund.owner == current_user %>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-cog", id="delete-item"></i>
+        </button>
+       <div class="dropdown-menu" aria-labelledby="dropdownButton">
+         <%= link_to "Delete Fund", fund_path(fund_id: @fund.id), data:{ confirm: "Are you sure you want to delete this fund?" }, method: :delete, class:"btn-medium" %>
+      </div>
+      </div>
+      <% end %>
+    </div>
+
+
+
+
          <div class="fund-name">
             <h2><%=@fund.name%>:<span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
         </div>
+
          <div class="fund-headline-profit">
           <% unless current_user.memberships.nil? %>
           <h2>Profit: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
@@ -68,11 +87,12 @@
 
           </div>
     <hr class="line-divider">
-    <div class="message">
+    <div>
       <h1 style="font-weight: 500;">Your Fund Conversation</h1>
         <%= render "messages/index" %>
     </div>
 </div>
+<div class="col-md-5 container4">
     <div class="col-md-4 container3">
 
       <div class="fund_performance">
@@ -123,10 +143,11 @@
           <% end %>
         </table>
         <%= pie_chart @fund.coins.group(:name).count %>
+        </div>
       </div>
-
     </div>
   </div>
+
 </div>
 
 
