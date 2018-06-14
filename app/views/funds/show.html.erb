@@ -72,20 +72,18 @@
 
 
 
-
-         <div class="fund-name">
-            <h2>Fund Growth: <span class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</span></h2>
+        <div id="headline">
+          <h2 style="display: inline;">Fund Growth: <class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</h2>
+          <span></span>
+          <h2 style="display: inline;">Current Fund Value: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
         </div>
 
-         <div class="fund-headline-profit">
+        <div class="fund-headline-profit">
           <% unless current_user.memberships.nil? %>
           <h2>Profit: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
           <% end %>
-      </div>
-    <div class="fund-value">
-             <h2>Current Fund Value: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+        </div>
 
-          </div>
     <hr class="line-divider">
     <div class="message-part">
       <h1 style="font-weight: 500;">Your Fund Conversation</h1>
