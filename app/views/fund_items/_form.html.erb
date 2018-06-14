@@ -4,11 +4,15 @@
     <%= f.association :coin, options.merge(collection: @coins)
      %>
   </div>
-  <div class="form-group">
-    <%= f.input :coin_purchase_price_in_cents %>
+  <div class="form-group" id="purchase_price">
+    <%= f.input :coin_purchase_price, as: :float, html: {id: :purchase_price} %>
   </div>
-  <div class="form-group">
-    <%= f.input :quantity %>
+  <div class="form-group" id="quantity">
+    <%= f.input :quantity, html: {id: :quantity} %>
+  </div>
+  <div class="result" style="margin-bottom: 10px;">
+    <h2 style="display: inline;">Total Amount: </h2>
+    <h2 style="display: inline;" id="total-amount"></h2>
   </div>
   <%= f.submit "ADD", class: "btn btn-primary" %>
 <% end %>

@@ -12,7 +12,7 @@ class FundItemsController < ApplicationController
 
   def create
     @fund_item = FundItem.new(fund_item_params)
-    @fund_item.coin_purchase_price_in_cents = fund_item_params[:coin_purchase_price_in_cents]
+    @fund_item.coin_purchase_price = fund_item_params[:coin_purchase_price]
     @fund_item.fund = @fund
     if @fund_item.save
       redirect_to fund_path(@fund)
@@ -49,6 +49,6 @@ class FundItemsController < ApplicationController
   end
 
   def fund_item_params
-    params.require(:fund_item).permit(:coin, :coin_id, :quantity, :coin_purchase_price_in_cents)
+    params.require(:fund_item).permit(:coin, :coin_id, :quantity, :coin_purchase_price)
   end
 end

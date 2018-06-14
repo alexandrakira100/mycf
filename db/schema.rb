@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2018_06_11_073658) do
     t.index ["fund_id"], name: "index_fund_items_on_fund_id"
   end
 
+  create_table "fund_values", force: :cascade do |t|
+    t.bigint "fund_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "value"
+    t.index ["fund_id"], name: "index_fund_values_on_fund_id"
+  end
+
   create_table "funds", force: :cascade do |t|
     t.string "name"
     t.integer "owner_id"
@@ -95,6 +103,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_073658) do
   add_foreign_key "coin_values", "coins"
   add_foreign_key "fund_items", "coins"
   add_foreign_key "fund_items", "funds"
+  add_foreign_key "fund_values", "funds"
   add_foreign_key "memberships", "funds"
   add_foreign_key "memberships", "users"
   add_foreign_key "messages", "funds"

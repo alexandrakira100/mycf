@@ -2,6 +2,8 @@
 <%  (0..6).to_a.each do |number| %>
 <% chart[Date.today - number.days]  = (@fund.fund_historical_value(number) / 100) %>
 <% end %>
-<%= line_chart chart, thousands: ",", prefix: "$", width: "480px", height: "300px" %>
+
+<%= line_chart chart, min: 5000, thousands: ",", prefix: "$", width: "480px", height: "300px" %>
+
 
 
