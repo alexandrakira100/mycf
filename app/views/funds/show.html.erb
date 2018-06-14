@@ -73,14 +73,14 @@
 
 
         <div id="headline">
-          <h2 style="display: inline;">Fund Growth: <class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</h2>
+          <h2 style="display: inline;"><b>Fund Growth</b>: <class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</h2>
           <span></span>
-          <h2 style="display: inline;">Current Fund Value: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+          <h2 style="display: inline;"><b>Current Fund Value</b>: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
         </div>
 
         <div class="fund-headline-profit">
           <% unless current_user.memberships.nil? %>
-          <h2>Profit: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
+          <h2><b>Profit</b>: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
           <% end %>
         </div>
 
