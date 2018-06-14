@@ -26,8 +26,9 @@ margin-bottom: 10px;
 
 .fund-members h2 {
   text-align: left !important ;
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 20px;
+  font-family: "Raleway", "Helvetica", "sans-serif";
 }
 
 .fund-members-additional-info {
@@ -329,9 +330,13 @@ color: #79B4A9;
   margin: 2px;
 }
 
+#headline{
+    margin-bottom: 20px;
+
 .current-fund-value {
   display: inline;
   padding-left: 40px;
+
 }
 
 
