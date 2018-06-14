@@ -127,6 +127,7 @@
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
               <td>
+              <% if @fund.owner == current_user %>
                 <%= link_to edit_fund_fund_item_path(@fund, fund_item), class:"btn" do %>
                   <i class="fas fa-cog", id="edit-item"></i>
                 <% end %>
@@ -135,6 +136,7 @@
               <td>
                 <%= link_to fund_fund_item_path(@fund, fund_item), data:{ confirm: "Are you sure you want to delete this item?" }, method: :delete, class:"btn" do %>
                 <i class="fas fa-times", id="delete-item"></i>
+               <% end %>
                <% end %>
               </td>
             </tr>
