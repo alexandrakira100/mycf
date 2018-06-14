@@ -2,10 +2,13 @@
 .description-1 h1{
   font-weight: bold;
   font-size: 27px;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .description-1 h2{
   font-size: 25px;
+  font-weight: 400;
 }
 
 
@@ -20,4 +23,12 @@
   font-size: 18px;
   font-family: "Raleway", "Helvetica", "sans-serif";
   margin-top: 10px;
+}
+
+.white-box {
+  border: 11px solid white;
+  padding: 50px;
+  width: 80%;
+  margin: 120px auto;
+
 }
