@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-2 container1">
       <div class="sidebar">
-        <h1 style="font-weight: 500;">My funds</h1>
+        <h1 style="font-weight: 500;">My Funds</h1>
         <div class="member-funds">
 
          <% if current_user.funds.present? %>
@@ -80,7 +80,7 @@
             </span>
           </h2>
           <h2 class="current-fund-value">
-            <b>Current Fund Value</b>:
+            <b>Value</b>:
             $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%>
           </h2>
         </div>
@@ -93,7 +93,7 @@
 
     <hr class="line-divider">
     <div class="message-part">
-      <h1 style="font-weight: 500;">Your Fund Conversation</h1>
+      <h1 style="font-weight: 500;">Your Conversation</h1>
         <%= render "messages/index", class: 'scroll-bar'%>
     </div>
 </div>
@@ -102,7 +102,7 @@
 
       <div class="fund_performance">
         <div class="market">
-          <h1 style="font-weight: 500;">Fund Performance</h1>
+          <h1 style="font-weight: 500;">Performance</h1>
           <%= render "chart" %>
 
 
@@ -112,7 +112,7 @@
       <div class="composition">
           <% if @fund.owner == current_user %>
             <div>
-              <h1 style="font-weight: 500;">Fund Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
+              <h1 style="font-weight: 500;">Portfolio <%= link_to "(+)", new_fund_fund_item_path(@fund), id:"add-coin", class:"btn-medium" %></h1>
             </div>
           <% end %>
           <table class="table-coins table">
