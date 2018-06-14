@@ -89,7 +89,7 @@
 
         <div class="fund-headline-profit">
           <% unless current_user.memberships.nil? %>
-          <h2><b>Profit</b>: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
+          <h2><b>Your Profit</b>: $<%=number_with_precision(user_profit_margin(@fund), :precision => 2, :delimiter => ',')%></h2>
           <% end %>
         </div>
 
