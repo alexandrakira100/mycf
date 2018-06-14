@@ -128,6 +128,7 @@
               <th>Current $</th>
               <th>Amount</th>
               <th>Value</th>
+              <th>Change</th>
             </tr>
           </thead>
         <% @fund_items.each do |fund_item| %>
@@ -138,6 +139,7 @@
               <td>$<%=number_with_precision((fund_item.coin.price_in_cents / 100.00), :precision => 2, :delimiter => ',')%></td>
               <td><%=number_with_precision(fund_item.quantity, :precision => 2, :delimiter => ',')%></td>
               <td>$<%=number_with_precision(((fund_item.coin.price_in_cents / 100.00) * fund_item.quantity), :precision => 2, :delimiter => ',')%></td>
+              <td class="<%= fund_item.change >= 0 ? "green-alpha" : "red-alpha" %>"> <%= fund_item.change %>%</td>
               <td>
                 <%= link_to edit_fund_fund_item_path(@fund, fund_item), class:"btn" do %>
                   <i class="fas fa-cog", id="edit-item"></i>
