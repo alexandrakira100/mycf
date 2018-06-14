@@ -73,10 +73,12 @@
 
 
         <div id="headline">
+
           <h2 style="display: inline;"><b>Fund Growth</b>: <class="<%= @fund.profitable? ? "green-alpha" : "red-alpha" %>"> <%= @fund.profit_margin %>%</h2>
         </div>
         <div>
           <h2 style="display: inline;"><b>Current Fund Value</b>: $<%=number_with_precision(@fund.total_fund_value, :precision => 2, :delimiter => ',')%></h2>
+
         </div>
 
         <div class="fund-headline-profit">
