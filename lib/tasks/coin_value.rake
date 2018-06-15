@@ -6,30 +6,40 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 60000
+          historical_price: coin.coin_values.first.historical_price - 120000
         )
         unless cv.save
-          cv.historical_price - 1
+          cv.historical_price - 10
+        end
+        cv.created_at = Date.today - 1.days
+        cv.save
+
+        cv = CoinValue.new(
+          coin: coin,
+          historical_price: coin.coin_values.second.historical_price - 60000
+        )
+        unless cv.save
+          cv.historical_price - 10
         end
         cv.created_at = Date.today - 2.days
         cv.save
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 50000
+          historical_price: coin.coin_values.first.historical_price - 90000
         )
         unless cv.save
-          cv.historical_price - 2
+          cv.historical_price - 20
         end
         cv.created_at = Date.today - 3.days
         cv.save
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 30000
+          historical_price: coin.coin_values.first.historical_price - 150000
         )
         unless cv.save
-          cv.historical_price - 3
+          cv.historical_price - 40
         end
         cv.created_at = Date.today - 4.days
         cv.save
@@ -37,10 +47,10 @@ namespace :coin_value do
 
         cv = CoinValue.new(
           coin: coin,
-          historical_price: coin.coin_values.first.historical_price - 40000
+          historical_price: coin.coin_values.first.historical_price - 190000
         )
         unless cv.save
-          cv.historical_price - 4
+          cv.historical_price - 15
         end
         cv.created_at = Date.today - 5.days
         cv.save
