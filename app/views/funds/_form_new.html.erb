@@ -3,19 +3,19 @@
     <%= simple_form_for @fund do |f| %>
       <fieldset>
 
-        <h2>Name of Fund</h2>
+        <h2 style="text-align: center;">Name of Fund</h2>
         <div class="form-group">
-          <%= f.input :name, label: false%>
+          <%= f.input :name, label: false, input_html: {:style => 'width: 250px; margin: 0 auto'}%>
         </div>
 
-        <h2>My Invested Amount (USD)</h2>
+        <h2 style="text-align: center;">My Invested Amount (USD)</h2>
         <div class="form-group">
-          <%= text_field_tag(:allocation_share)%>
+          <%= text_field_tag :allocation_share, "", :style => 'display: block; width: 250px; margin: 0 auto' %>
         </div>
 
         <h2></h2>
 
-        <%= f.submit "ADD", class: "my-btn" %>
+        <%= f.submit "ADD", class: "my-btn", :style => 'display: block; margin: 0 auto' %>
 
       <% end %>
 </div>
